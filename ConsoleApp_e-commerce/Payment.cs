@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp_e_commerce
 {
-    internal class Payment
+    class Payment  //Ödeme
     {
+        enum PaymentType
+        {
+            Cash,   //Nakit 
+            Card,   //Kart
+        }
     }
 }
