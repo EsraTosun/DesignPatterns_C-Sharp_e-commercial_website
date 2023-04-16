@@ -6,21 +6,24 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp_e_commerce
 {
-    class Patterns
-    {
-        enum PantsPatterns
+        public enum TshirtPatterns  //tişört kalıpları
         {
-            thirty = 30,
-            thirtytwo = 32,
-            thirtyfour = 34,
-            thirtsix = 36,
-            thirtyeight = 38,
-            forty = 40,
-            fortytwo = 42,
-            fortyfour = 44,
-            fortysix = 46,
-            fortyeight = 48,
+            standard,
+            oversize
         }
 
+        public enum PantsPatterns   //Pantolon kalıpları
+        {
+            tightTrotters,        //dar paça
+            normalTrotters,       //normal paça
+            wideTrotters,         //Geniş paça
+            cuttingCarrots        //Havuş kesim 
+        }
+
+        public enum DressLengthPatterns
+        {
+            shortLenght,   //kısa boy
+            kneeLength,    //diz boyu
+            longLength,    //uzun boy
     }
 }

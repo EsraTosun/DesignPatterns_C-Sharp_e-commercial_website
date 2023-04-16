@@ -43,10 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BodyChart.cs" />
+    <Compile Include="Brand.cs" />
+    <Compile Include="Colors.cs" />
     <Compile Include="IAccount.cs" />
-    <Compile Include="IProduct.cs" />
     <Compile Include="Patterns.cs" />
     <Compile Include="Payment.cs" />
+    <Compile Include="Products.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
