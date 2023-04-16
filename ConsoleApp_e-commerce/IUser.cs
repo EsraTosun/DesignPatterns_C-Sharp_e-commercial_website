@@ -6,26 +6,19 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp_e_commerce
 {
-     interface IAccount  //Hesap Ara Yüzü
-     {
-        void UserType(String UserType);
+    interface IUser  //Hesap Ara Yüzü olacak
+    {
+        void UserTypeLeading();  //Kullanıcı tipi öğrenme
         //Kullanıcı tipine göre işlemlere devam et
-        //Girilen kullanıcı(satıcı veya müşteri) sayfasına yönlendir.
+        //Girilen kullanıcı(satıcı veya müşteri) olması giriş şeklini değiştirmediği için
+        //ortak alan olan kullanıcı kısımda gerçekleştir.
         //UserType enum tipi oluştur müşteri ve satıcı tipi diye 
         //String yerine UserType olsun
-    }
 
-    interface IUser  //Hesap Ara Yüzü olacak
-     {
-        bool LogIn();  //Oturum açma
-        void LogOut();  //Oturum kapatma
-
-        string Name { get; set; }
-        string PhoneNumber { get; set; }
-        string EmailAddress { get; set; }
-        string Password { get; set; }
-        string Adress { get; set; }
-
+        void LogIn();  //Giriş Yap
+        void UserTransactions();    //tüm Kullanıcıların başta yapacağı işlemler
+        void LogOut();  //Çıkıi Yap
+        void NewCreatingAnAccount();   //Hesap Oluşturma
     }
 
     interface ISeller //Satıcı

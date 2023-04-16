@@ -8,5 +8,6 @@ namespace ConsoleApp_e_commerce
 {
     class Dress  //Elbise
     {
+
     }
 }

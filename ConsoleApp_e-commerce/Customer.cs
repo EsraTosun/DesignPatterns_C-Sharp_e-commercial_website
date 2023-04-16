@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp_e_commerce
 {
-    enum PaymentType
+    class Customer:User   //Müşteri
     {
-        Cash,   //Nakit 
-        Card,   //Kart
+        public static void CustomerAccount()    //Müşteri Hesabı
+        {
+
+        }
     }
-   
 }
