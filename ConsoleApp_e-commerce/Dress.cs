@@ -6,8 +6,18 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp_e_commerce
 {
-    class Dress  //Elbise
+    class Dress : Products //Elbise
     {
+        public DressLengthPatterns dressLengthPatterns;   //Elbise boyu
+        public PantsAndDressBodys pantsAndDressBodys;      //Elbise bedeni
+        public DressFabricType dressFabricType;          //Elbise kumaşı
 
+        public static void SortTheDress()
+        {
+            for (int i = 0; i < Products.dressList.Count; i++)
+            {
+                Console.WriteLine(dressList[i].ToString());
+            }
+        }
     }
 }

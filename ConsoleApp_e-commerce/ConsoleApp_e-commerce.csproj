@@ -48,6 +48,7 @@
     <Compile Include="Colors.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Dress.cs" />
+    <Compile Include="FabricType.cs" />
     <Compile Include="IUser.cs" />
     <Compile Include="Pants.cs" />
     <Compile Include="Patterns.cs" />

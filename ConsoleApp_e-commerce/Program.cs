@@ -10,7 +10,9 @@ namespace ConsoleApp_e_commerce
     {
         static void Main(string[] args)
         {
-            RunAccount();
+            //RunAccount();
+
+            Color.ColorWrite();
 
             Console.ReadLine();
         }
@@ -21,21 +23,27 @@ namespace ConsoleApp_e_commerce
 
             int transaction = -1;
 
-            while (transaction != 1 && transaction != 2)
+            while (true)
             {
                 Console.WriteLine("1- Seller");
                 Console.WriteLine("2- Customer");
                 transaction = Convert.ToInt32(Console.ReadLine());
-            }
 
-            if (transaction == 1)
-            {
-                User.userType = UserType.Seller;
-            }
+                if (transaction == 1)
+                {
+                    User.userType = UserType.Seller;
+                    break;
+                }
 
-            else
-            {
-                User.userType = UserType.Customer;
+                else if (transaction == 2)  
+                {
+                    User.userType = UserType.Customer;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("You made the wrong choice");  //Yanlış tercih yaptınız
+                }
             }
 
             user.UserTransactions();

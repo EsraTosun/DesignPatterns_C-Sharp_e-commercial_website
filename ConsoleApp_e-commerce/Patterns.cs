@@ -6,24 +6,111 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp_e_commerce
 {
-        public enum TshirtPatterns  //tişört kalıpları
+    public enum TshirtPatterns  //tişört kalıpları
+    {
+        standard,
+        oversize
+    }
+
+    public enum PantTrotterPatterns   //Pantolon paça kalıpları
+    {
+        tightTrotters,        //dar paça
+        normalTrotters,       //normal paça
+        wideTrotters,         //Geniş paça
+    }
+
+    public enum DressLengthPatterns  //elbise boy kalıpları
+    {
+        shortLenght,   //kısa boy
+        kneeLength,    //diz boyu
+        longLength,    //uzun boy
+    }
+
+    public class Patterns
+    {
+        public static List<String> TshirtPatternslist = Enum.GetNames(typeof(TshirtPatterns)).ToList();
+        public static List<String> PantTrotterPatternslist = Enum.GetNames(typeof(PantTrotterPatterns)).ToList();
+        public static List<String> DressLengthPatternslist = Enum.GetNames(typeof(DressLengthPatterns)).ToList();
+
+        public static void TshirtPatternsWrite()
         {
-            standard,
-            oversize
+            for (int i = 0; i < TshirtPatternslist.Count; i++)
+            {
+                Console.WriteLine(i + "- " + TshirtPatternslist[i]);
+            }
+        }
+        public static TshirtPatterns TshirtPatternsFinding()
+        {
+            int index;
+            TshirtPatternsWrite();
+            Console.WriteLine("Enter the TshirtPatterns");
+            index = Convert.ToInt32(Console.ReadLine());
+
+            if (index == (int)TshirtPatterns.standard)
+            {
+                return TshirtPatterns.standard;
+            }
+            else
+            {
+                return TshirtPatterns.oversize;
+            }
         }
 
-        public enum PantTrotterPatterns   //Pantolon paça kalıpları
+        public static void PantTrotterPatternsWrite()
         {
-            tightTrotters,        //dar paça
-            normalTrotters,       //normal paça
-            wideTrotters,         //Geniş paça
-            cuttingCarrots        //Havuş kesim 
+            for (int i = 0; i < PantTrotterPatternslist.Count; i++)
+            {
+                Console.WriteLine(i + "- " + PantTrotterPatternslist[i]);
+            }
+        }
+        public static PantTrotterPatterns PantTrotterPatternsFinding()
+        {
+            int index;
+            PantTrotterPatternsWrite();
+            Console.WriteLine("Enter the PantTrotterPatterns");
+            index = Convert.ToInt32(Console.ReadLine());
+
+            if (index == (int)PantTrotterPatterns.tightTrotters)
+            {
+                return PantTrotterPatterns.tightTrotters;
+            }
+            else if(index == (int)PantTrotterPatterns.normalTrotters)
+            {
+                return PantTrotterPatterns.normalTrotters;
+            }
+            else
+            {
+                return PantTrotterPatterns.wideTrotters;
+            }
         }
 
-        public enum DressLengthPatterns  //elbise boy kalıpları
+        public static void DressLengthPatternsWrite()
         {
-            shortLenght,   //kısa boy
-            kneeLength,    //diz boyu
-            longLength,    //uzun boy
+            for (int i = 0; i < DressLengthPatternslist.Count; i++)
+            {
+                Console.WriteLine(i + "- " + DressLengthPatternslist[i]);
+            }
         }
+        public static DressLengthPatterns DressLengthPatternsFinding()
+        {
+            int index;
+            DressLengthPatternsWrite();
+            Console.WriteLine("Enter the DressLengthPatterns");
+            index = Convert.ToInt32(Console.ReadLine());
+
+            if (index == (int)DressLengthPatterns.shortLenght)
+            {
+                return DressLengthPatterns.shortLenght;
+            }
+            else if (index == (int)DressLengthPatterns.kneeLength)
+            {
+                return DressLengthPatterns.kneeLength;
+            }
+            else
+            {
+                return DressLengthPatterns.longLength;
+            }
+        }
+    }
+
 }

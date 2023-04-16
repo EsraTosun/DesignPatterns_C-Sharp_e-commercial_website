@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp_e_commerce
 {
-    class Tshirt     //Tişört
+    class Tshirt : Products    //Tişört
     {
+        public TshirtPatterns tshirtPatterns;          //tişört kalıbı
+        public TshirtBodys tshirtBodys;                //tişört bedeni
+        public TshirtFabricType tshirtFabricType;     //tişört kumaşı
+
+        public static void SortTheTshirt()
+        {
+            for (int i = 0; i < Products.tshirtsList.Count; i++)
+            {
+                Console.WriteLine(tshirtsList[i].ToString());
+            }
+        }
     }
 }

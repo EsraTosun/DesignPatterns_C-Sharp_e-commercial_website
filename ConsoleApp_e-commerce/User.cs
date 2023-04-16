@@ -65,7 +65,7 @@ namespace ConsoleApp_e_commerce
                 Console.WriteLine("2-New Creating an Account");   //Hesap oluştur
                 Console.WriteLine("3-Continue without logging in");  //Giriş yapmadan devam et
                 Console.WriteLine("4-Logout");
-                transaction = Convert.ToInt32(Console.ReadLine()); ;
+                transaction = Convert.ToInt32(Console.ReadLine()); 
 
                 if (transaction == 1)
                 {
@@ -83,6 +83,10 @@ namespace ConsoleApp_e_commerce
                 {
                     LogOut();
                     return;
+                }
+                else
+                {
+                    Console.WriteLine("You made the wrong choice");  //Yanlış tercih yaptınız
                 }
             }
         }
@@ -111,6 +115,7 @@ namespace ConsoleApp_e_commerce
                 if (CustomerList[i].EmailAddress.Equals(EmailAddress) 
                     && CustomerList[i].Password.Equals(Password))
                 {
+                    ID = i;
                     login = true;
                     CustomerAccountGo();
                     break;
@@ -125,6 +130,7 @@ namespace ConsoleApp_e_commerce
                 if (SellerList[i].EmailAddress.Equals(EmailAddress)
                     && SellerList[i].Password.Equals(Password))
                 {
+                    ID = i;
                     login = true;
                     SellerAccountGo();
                     break;
@@ -171,6 +177,8 @@ namespace ConsoleApp_e_commerce
                 passing.ID = SellerList.Count + 200;
                 SellerList.Add(passing);
             }
+
+            ID = passing.ID;
             UserTypeLeading();
         }
 
@@ -194,6 +202,18 @@ namespace ConsoleApp_e_commerce
             builder.Append(" Phone Number: " + PhoneNumber);
             builder.Append(" Adress: " + Adress);
             return builder.ToString();
+        }
+
+        public void AccountInformation()
+        {
+            if(userType == UserType.Customer) 
+            {
+                CustomerList[ID].ToString();
+            }
+            else if(userType == UserType.Seller)
+            {
+                SellerList[ID].ToString();
+            }
         }
     }
 }
