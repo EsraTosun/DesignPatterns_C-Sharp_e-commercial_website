@@ -12,7 +12,7 @@ namespace ConsoleApp_e_commerce
             oversize
         }
 
-        public enum PantsPatterns   //Pantolon kalıpları
+        public enum PantTrotterPatterns   //Pantolon paça kalıpları
         {
             tightTrotters,        //dar paça
             normalTrotters,       //normal paça
@@ -20,10 +20,10 @@ namespace ConsoleApp_e_commerce
             cuttingCarrots        //Havuş kesim 
         }
 
-        public enum DressLengthPatterns
+        public enum DressLengthPatterns  //elbise boy kalıpları
         {
             shortLenght,   //kısa boy
             kneeLength,    //diz boyu
             longLength,    //uzun boy
-    }
+        }
 }

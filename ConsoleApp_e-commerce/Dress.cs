@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp_e_commerce
 {
-    public enum Brand   //Marka
+    class Dress  //Elbise
     {
-        Lcwakiki,
-        Defacto,
-        Mavi,
-        HM,
-        Armine,
     }
 }

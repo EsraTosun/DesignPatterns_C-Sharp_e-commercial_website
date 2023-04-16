@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp_e_commerce
 {
-    internal class Colors
+    public enum Colors
     {
+        Red,        //Kırmızı
+        Green,      //yeşil
+        Blue,       //mavi
+        Black,      //siyah
+        Pink,       //pembe
+        Orange,     //turuncu
+        Yellow,     //sarı
+        Purple,     //mor
+        Brown,      //kahverengi
     }
 }
