@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp_e_commerce
 {
-    public enum Brand   //Marka
+    class Tshirt     //Tişört
     {
-        Lcwakiki,
-        Defacto,
-        Mavi,
-        HM,
-        Armine,
     }
 }
