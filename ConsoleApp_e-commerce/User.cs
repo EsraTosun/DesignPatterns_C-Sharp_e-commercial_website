@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace ConsoleApp_e_commerce
 {
@@ -22,12 +23,13 @@ namespace ConsoleApp_e_commerce
     }
     class User : IUser
     {
-        public List<User> CustomerList = new List<User>();
-        public List<User> SellerList = new List<User>();
+        public static List<User> CustomerList = new List<User>();
+        public static List<User> SellerList = new List<User>();
 
         public static UserType userType;
         UserTransactionsType userTransactionsType;
 
+        int ID;
         string Name;
         string Surname;
         string PhoneNumber;
@@ -161,10 +163,12 @@ namespace ConsoleApp_e_commerce
 
             if(userType.Equals(UserType.Customer))
             {
+                passing.ID = CustomerList.Count + 100;
                 CustomerList.Add(passing);
             }
             else
             {
+                passing.ID = SellerList.Count + 200;
                 SellerList.Add(passing);
             }
             UserTypeLeading();
@@ -178,6 +182,18 @@ namespace ConsoleApp_e_commerce
         void SellerAccountGo()          //Satıcı hesabına git
         {
             Seller.SellerAccount(); 
+        }
+
+        public override string ToString()
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.Append("ID: " + ID);
+            builder.Append(" Name: " + Name);
+            builder.Append(" Surname:" + Surname);
+            builder.Append(" EmailAdress: " + EmailAddress);
+            builder.Append(" Phone Number: " + PhoneNumber);
+            builder.Append(" Adress: " + Adress);
+            return builder.ToString();
         }
     }
 }

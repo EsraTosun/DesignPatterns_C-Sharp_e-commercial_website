@@ -10,7 +10,11 @@ namespace ConsoleApp_e_commerce
     {
         public static void SellerAccount()    //Satıcı Hesabı
         {
-
+            foreach (User sellerList in SellerList)
+            {
+                Console.WriteLine(sellerList.ToString());
+            }
+            
         }
     }
 }
