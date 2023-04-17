@@ -29,10 +29,10 @@ namespace ConsoleApp_e_commerce
        // Products productsObject = new Products();
         int transaction = -1;
 
-        public static List<Products> productList = new List<Products>();
+        /*public static List<Products> productList = new List<Products>();
         public static List<Dress> dressList = new List<Dress>();
         public static List<Tshirt> tshirtsList = new List<Tshirt>();
-        public static List<Pants> pantsList = new List<Pants>();
+        public static List<Pants> pantsList = new List<Pants>();  */
 
         /*Dress dress = new Dress();
         Pants pants = new Pants();
@@ -52,10 +52,11 @@ namespace ConsoleApp_e_commerce
             this.productType = productsType;
         }
 
-        public void ProductFind()
+        public void SellerProductsList(int index)  //Ürünleri Listele
         {
-            ProductsList();
-            transaction = Convert.ToInt32(Console.ReadLine());
+            Tshirt.SellerSortTheTshirt(index);
+            Dress.SellerSortTheDress(index);
+            Pants.SellerSortThePants(index);
         }
 
         public void ProductsList()  //Ürünleri Listele

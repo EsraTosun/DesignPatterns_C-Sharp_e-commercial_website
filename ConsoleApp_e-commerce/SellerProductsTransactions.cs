@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp_e_commerce
 {
-    class ProductsTransactions
+    class SellerProductsTransactions
     {
-        Products productsObject = new Products();
         int transaction = -1;
 
         public static List<Products> productList = new List<Products>();
@@ -22,12 +21,25 @@ namespace ConsoleApp_e_commerce
         Pants pants = new Pants();
         Tshirt tshirt = new Tshirt();
 
+        public void YourProductsView()
+        {
+
+        }
+
         public void ProductAdd(ProductsType IncomingproductType)  //Ürün tipi
         {
-            if (IncomingproductType == ProductsType.allProduct) { }
-            else if (IncomingproductType == ProductsType.pants) { }
-            else if (IncomingproductType == ProductsType.tshirt) { }
-            else if (IncomingproductType == ProductsType.dress) { }
+            if (IncomingproductType == ProductsType.pants) 
+            {
+                PantsProductAdd();
+            }
+            else if (IncomingproductType == ProductsType.tshirt) 
+            {
+                TshirtProductAdd();
+            }
+            else if (IncomingproductType == ProductsType.dress) 
+            {
+                DressProductAdd();
+            }
         }
 
         void PantsProductAdd()
@@ -134,5 +146,7 @@ namespace ConsoleApp_e_commerce
                 }
             }
         }
+
+        
     }
 }

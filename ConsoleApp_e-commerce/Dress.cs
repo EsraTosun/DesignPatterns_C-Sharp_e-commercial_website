@@ -26,9 +26,20 @@ namespace ConsoleApp_e_commerce
 
         public static void SortTheDress()
         {
-            for (int i = 0; i < Products.dressList.Count; i++)
+            for (int i = 0; i < SellerProductsTransactions.dressList.Count; i++)
             {
-                Console.WriteLine(dressList[i].ToString());
+                Console.WriteLine(SellerProductsTransactions.dressList[i].ToString());
+            }
+        }
+
+        public static void SellerSortTheDress(int index)
+        {
+            for (int i = 0; i < SellerProductsTransactions.dressList.Count; i++)
+            {
+                if (SellerProductsTransactions.dressList.ElementAt(i).UserID == index)
+                {
+                    Console.WriteLine(SellerProductsTransactions.dressList.ElementAt(i));
+                }
             }
         }
     }

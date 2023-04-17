@@ -24,9 +24,20 @@ namespace ConsoleApp_e_commerce
         }  */
         public static void SortTheTshirt()
         {
-            for (int i = 0; i < Products.tshirtsList.Count; i++)
+            for (int i = 0; i < SellerProductsTransactions.tshirtsList.Count; i++)
             {
-                Console.WriteLine(tshirtsList[i].ToString());
+                Console.WriteLine(SellerProductsTransactions.tshirtsList[i].ToString());
+            }
+        }
+
+        public static void SellerSortTheTshirt(int index)
+        {
+            for(int i = 0; i < SellerProductsTransactions.tshirtsList.Count; i++)
+            {
+                if(SellerProductsTransactions.tshirtsList.ElementAt(i).UserID == index)
+                {
+                    Console.WriteLine(SellerProductsTransactions.tshirtsList.ElementAt(i));
+                }
             }
         }
     }

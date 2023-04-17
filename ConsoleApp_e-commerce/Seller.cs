@@ -9,7 +9,7 @@ namespace ConsoleApp_e_commerce
     enum SellerAccountType   //Satıcı hesap tipleri
     {
         AccountInformation = 1,
-        //ViewYourProducts = 2,
+        ViewYourProducts = 2,
         AddProduct = 2,
         DeleteProduct = 3,
         Logout = 4,
@@ -19,27 +19,27 @@ namespace ConsoleApp_e_commerce
         static Seller seller = new Seller();
         static Products products = new Products();
         static User user = new User();
-        ProductsTransactions productsTransactions = new ProductsTransactions();
+        SellerProductsTransactions productsTransactions = new SellerProductsTransactions();
         public static void SellerAccount()    //Satıcı Hesabı
         {
             int transaction = -1;
             while (true)
             {
                 Console.WriteLine("1- Account information"); //Hesap bilgileri
-            //    Console.WriteLine("2- View your products");  //Ürünlerini görüntüle
-                Console.WriteLine("2- Add product");   //Ürün ekle
-                Console.WriteLine("3- Delete product");   //Ürün Sil
-                Console.WriteLine("4- Logout");  //Çıkış yap
+                Console.WriteLine("2- View your products");  //Ürünlerini görüntüle
+                Console.WriteLine("3- Add product");   //Ürün ekle
+                Console.WriteLine("4- Delete product");   //Ürün Sil
+                Console.WriteLine("5- Logout");  //Çıkış yap
                 transaction = Convert.ToInt32(Console.ReadLine());
 
                 if(transaction == (int)SellerAccountType.AccountInformation)
                 {
                     user.AccountInformation();
                 }
-                /*else if(transaction == 2)
+                else if(transaction == (int)SellerAccountType.ViewYourProducts)
                 {
                     
-                }  */
+                }  
                 else if(transaction == (int)SellerAccountType.AddProduct)
                 {
                     seller.AddProduct();
@@ -57,17 +57,17 @@ namespace ConsoleApp_e_commerce
 
         public void AddProduct()
         {
-            productsTransactions.ProductAdd(ProductsTransactions.productsTypeFinding());            
+            productsTransactions.ProductAdd(SellerProductsTransactions.productsTypeFinding());            
         }
 
         public void DeleteProduct()
         {
-            productsTransactions.ProductDelete(ProductsTransactions.productsTypeFinding());
+            productsTransactions.ProductDelete(SellerProductsTransactions.productsTypeFinding());
         }
 
         public void ViewYourProducts()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

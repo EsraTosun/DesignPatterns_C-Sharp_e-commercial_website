@@ -24,11 +24,22 @@ namespace ConsoleApp_e_commerce
 
         }  */
 
+        public static void SellerSortThePants(int index)
+        {
+            for (int i = 0; i < SellerProductsTransactions.pantsList.Count; i++)
+            {
+                if (SellerProductsTransactions.pantsList.ElementAt(i).UserID == index)
+                {
+                    Console.WriteLine(SellerProductsTransactions.pantsList.ElementAt(i));
+                }
+            }
+        }
+
         public static void SortThePants()
         {
-            for(int i = 0;i < Products.pantsList.Count;i++)
+            for(int i = 0;i < SellerProductsTransactions.pantsList.Count;i++)
             {
-                Console.WriteLine(pantsList[i].ToString());
+                Console.WriteLine(SellerProductsTransactions.pantsList[i].ToString());
             }
         }
     }
