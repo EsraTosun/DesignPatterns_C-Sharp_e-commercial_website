@@ -19,7 +19,7 @@ namespace ConsoleApp_e_commerce
         void UserTransactions();    //tüm Kullanıcıların başta yapacağı işlemler
         void LogOut();  //Çıkıi Yap
         void NewCreatingAnAccount();   //Hesap Oluşturma
-        void AccountInformation();    //Hesap Bilgileri
+        //void AccountInformation();    //Hesap Bilgileri
     }
 
     interface ISeller //Satıcı

@@ -10,9 +10,9 @@ namespace ConsoleApp_e_commerce
     {
         static void Main(string[] args)
         {
-            //RunAccount();
+            RunAccount();
 
-            Color.ColorWrite();
+            //Color.ColorWrite();
 
             Console.ReadLine();
         }

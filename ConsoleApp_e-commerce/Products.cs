@@ -22,7 +22,7 @@ namespace ConsoleApp_e_commerce
         public int UserID;
         public int ID;
         public Brand brand;   //marka
-        public float amount;   //tutar
+        public int amount;   //tutar
         public ColorType color;
         public ProductsType productType;
 
@@ -42,7 +42,7 @@ namespace ConsoleApp_e_commerce
         {
 
         }
-        public Products(int UserId,int ID,Brand brand,float amount,ColorType color,ProductsType productsType)
+        public Products(int UserId,int ID,Brand brand,int amount,ColorType color,ProductsType productsType)
         {
             this.UserID = UserId;
             this.ID = ID;

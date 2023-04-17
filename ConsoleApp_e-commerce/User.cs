@@ -171,15 +171,17 @@ namespace ConsoleApp_e_commerce
             if(userType.Equals(UserType.Customer))
             {
                 passing.ID = CustomerList.Count + 100;
+                USERID = CustomerList.Count + 100;
                 CustomerList.Add(passing);
             }
             else
             {
                 passing.ID = SellerList.Count + 200;
+                USERID = SellerList.Count + 200;
                 SellerList.Add(passing);
             }
 
-            USERID = passing.ID;
+            
             UserTypeLeading();
         }
 
@@ -205,16 +207,42 @@ namespace ConsoleApp_e_commerce
             return builder.ToString();
         }
 
+        public void SellerUser()
+        {
+            for(int i=0;  i<SellerList.Count; i++) 
+            {
+                if (SellerList[i].ID == USERID)
+                {
+                    Console.WriteLine(SellerList[i].ToString());
+                    break;
+                }
+            }
+        }
+
+        public void CustomerUser()
+        {
+            for (int i = 0; i < CustomerList.Count; i++)
+            {
+                if (CustomerList[i].ID == ID) 
+                {
+                    Console.WriteLine(CustomerList[i].ToString());
+                    break;
+                }
+            }
+        }
+
         public void AccountInformation()
         {
-            if(userType == UserType.Customer) 
+            SellerUser();
+            CustomerUser();
+            /*if(userType == UserType.Customer) 
             {
                 CustomerList[ID].ToString();
             }
             else if(userType == UserType.Seller)
             {
-                SellerList[ID].ToString();
+                SellerList[ID].ToString();  */
             }
-        }
+        }  
     }
-}
+

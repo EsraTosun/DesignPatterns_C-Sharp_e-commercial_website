@@ -26,7 +26,7 @@ namespace ConsoleApp_e_commerce
 
                 if(transaction == (int)SellerAccountType.AccountInformation)
                 {
-                    user.AccountInformation();
+                    user.SellerUser();
                 }
                 else if(transaction == (int)SellerAccountType.ViewYourProducts)
                 {
