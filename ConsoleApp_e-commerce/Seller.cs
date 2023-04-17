@@ -19,6 +19,7 @@ namespace ConsoleApp_e_commerce
         static Seller seller = new Seller();
         static Products products = new Products();
         static User user = new User();
+        ProductsTransactions productsTransactions = new ProductsTransactions();
         public static void SellerAccount()    //Satıcı Hesabı
         {
             int transaction = -1;
@@ -56,12 +57,12 @@ namespace ConsoleApp_e_commerce
 
         public void AddProduct()
         {
-            products.ProductAdd(Products.productsTypeFinding());            
+            productsTransactions.ProductAdd(ProductsTransactions.productsTypeFinding());            
         }
 
         public void DeleteProduct()
         {
-            products.ProductDelete(Products.productsTypeFinding());
+            productsTransactions.ProductDelete(ProductsTransactions.productsTypeFinding());
         }
 
         public void ViewYourProducts()

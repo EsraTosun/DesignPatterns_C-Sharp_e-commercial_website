@@ -33,10 +33,10 @@ namespace ConsoleApp_e_commerce
             throw new NotImplementedException();
         }
 
-        public void Products()    //Ürünler
+        public void ProductsList()    //Ürünler
         {
-            products.ProductsList();
-            transaction = Convert.ToInt32(Console.ReadLine());
+            
+
         }
     }
 }

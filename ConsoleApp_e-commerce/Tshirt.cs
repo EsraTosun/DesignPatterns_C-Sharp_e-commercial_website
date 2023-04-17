@@ -12,6 +12,16 @@ namespace ConsoleApp_e_commerce
         public TshirtBodys tshirtBodys;                //tişört bedeni
         public TshirtFabricType tshirtFabricType;     //tişört kumaşı
 
+        /*public Tshirt()
+            :base()
+        {
+
+        }
+        public Tshirt(int UserId, int ID, Brand brand, float amount, ColorType color, ProductsType productsType)
+            :base(UserId, ID, brand, amount, color, productsType)
+        {
+
+        }  */
         public static void SortTheTshirt()
         {
             for (int i = 0; i < Products.tshirtsList.Count; i++)

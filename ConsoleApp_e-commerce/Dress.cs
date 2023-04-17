@@ -12,6 +12,18 @@ namespace ConsoleApp_e_commerce
         public PantsAndDressBodys pantsAndDressBodys;      //Elbise bedeni
         public DressFabricType dressFabricType;          //Elbise kumaşı
 
+        /*public Dress()
+            : base()
+        {
+
+        }
+
+        public Dress(int UserId, int ID, Brand brand, float amount, ColorType color, ProductsType productsType)
+            : base(UserId, ID, brand, amount, color, productsType)
+        {
+
+        }  */
+
         public static void SortTheDress()
         {
             for (int i = 0; i < Products.dressList.Count; i++)

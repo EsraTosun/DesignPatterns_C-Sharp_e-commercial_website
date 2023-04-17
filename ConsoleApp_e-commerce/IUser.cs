@@ -33,7 +33,7 @@ namespace ConsoleApp_e_commerce
     {
         void MyBasket();  //Sepetim
         void Favorites();  //Favoriler
-        void Products();  //Ürünler
+        void ProductsList();  //Ürünler
         void MyAccount();  //Hesabım
     }
 }
