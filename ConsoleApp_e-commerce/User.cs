@@ -29,6 +29,7 @@ namespace ConsoleApp_e_commerce
         public static UserType userType;
         UserTransactionsType userTransactionsType;
 
+        public static int USERID;
         int ID;
         string Name;
         string Surname;
@@ -51,7 +52,7 @@ namespace ConsoleApp_e_commerce
             }
             else
             {
-                Seller.SellerAccount();
+                SellerProductsTransactions.SellerAccount();
             }
         }
 
@@ -115,7 +116,7 @@ namespace ConsoleApp_e_commerce
                 if (CustomerList[i].EmailAddress.Equals(EmailAddress) 
                     && CustomerList[i].Password.Equals(Password))
                 {
-                    ID = i;
+                    USERID = i;
                     login = true;
                     CustomerAccountGo();
                     break;
@@ -130,7 +131,7 @@ namespace ConsoleApp_e_commerce
                 if (SellerList[i].EmailAddress.Equals(EmailAddress)
                     && SellerList[i].Password.Equals(Password))
                 {
-                    ID = i;
+                    USERID = i;
                     login = true;
                     SellerAccountGo();
                     break;
@@ -178,7 +179,7 @@ namespace ConsoleApp_e_commerce
                 SellerList.Add(passing);
             }
 
-            ID = passing.ID;
+            USERID = passing.ID;
             UserTypeLeading();
         }
 
@@ -189,7 +190,7 @@ namespace ConsoleApp_e_commerce
 
         void SellerAccountGo()          //Satıcı hesabına git
         {
-            Seller.SellerAccount(); 
+            SellerProductsTransactions.SellerAccount(); 
         }
 
         public override string ToString()

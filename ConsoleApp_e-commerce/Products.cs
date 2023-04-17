@@ -52,11 +52,11 @@ namespace ConsoleApp_e_commerce
             this.productType = productsType;
         }
 
-        public void SellerProductsList(int index)  //Ürünleri Listele
+        public static void SellerProductsList()  //Ürünleri Listele
         {
-            Tshirt.SellerSortTheTshirt(index);
-            Dress.SellerSortTheDress(index);
-            Pants.SellerSortThePants(index);
+            Tshirt.SellerSortTheTshirt();
+            Dress.SellerSortTheDress();
+            Pants.SellerSortThePants();
         }
 
         public void ProductsList()  //Ürünleri Listele

@@ -24,19 +24,19 @@ namespace ConsoleApp_e_commerce
         }  */
         public static void SortTheTshirt()
         {
-            for (int i = 0; i < SellerProductsTransactions.tshirtsList.Count; i++)
+            for (int i = 0; i < Seller.tshirtsList.Count; i++)
             {
-                Console.WriteLine(SellerProductsTransactions.tshirtsList[i].ToString());
+                Console.WriteLine(Seller.tshirtsList[i].ToString());
             }
         }
 
-        public static void SellerSortTheTshirt(int index)
+        public static void SellerSortTheTshirt()
         {
-            for(int i = 0; i < SellerProductsTransactions.tshirtsList.Count; i++)
+            for(int i = 0; i < Seller.tshirtsList.Count; i++)
             {
-                if(SellerProductsTransactions.tshirtsList.ElementAt(i).UserID == index)
+                if(Seller.tshirtsList.ElementAt(i).UserID == User.USERID)
                 {
-                    Console.WriteLine(SellerProductsTransactions.tshirtsList.ElementAt(i));
+                    Console.WriteLine(Seller.tshirtsList.ElementAt(i));
                 }
             }
         }
