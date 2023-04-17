@@ -17,6 +17,7 @@ namespace ConsoleApp_e_commerce
     class Seller : User,ISeller   //Satıcı
     {
         static Seller seller = new Seller();
+        static Products products = new Products();
         static User user = new User();
         public static void SellerAccount()    //Satıcı Hesabı
         {
@@ -55,12 +56,12 @@ namespace ConsoleApp_e_commerce
 
         public void AddProduct()
         {
-            Products.ProductAdd(Products.productsTypeFinding());            
+            products.ProductAdd(Products.productsTypeFinding());            
         }
 
         public void DeleteProduct()
         {
-            
+            products.ProductDelete(Products.productsTypeFinding());
         }
 
         public void ViewYourProducts()
