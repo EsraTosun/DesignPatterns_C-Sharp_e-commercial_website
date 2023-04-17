@@ -1,0 +1,48 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp_e_commerce
+{
+    class CustomerProductsTransacitons
+    {
+		static Customer customer = new Customer();
+		static User user = new User();
+		public static void CustomerAccount()    //Satıcı Hesabı
+		{
+			int transaction = -1;
+			while (true)
+			{
+				Console.WriteLine("1- Account information"); //Hesap bilgileri
+				Console.WriteLine("2- Products");  //Ürünlerini görüntüle
+				Console.WriteLine("3- My Basket");   //Sepetim
+				Console.WriteLine("4- Favorites");   //Favoriler
+				Console.WriteLine("5- Logout");  //Çıkış yap
+				transaction = Convert.ToInt32(Console.ReadLine());
+
+				if (transaction == (int)CustomerAccountType.AccountInformation)
+				{
+					user.CustomerUser();
+				}
+				else if (transaction == (int)CustomerAccountType.Products)
+				{
+					customer.ProductsList();
+				}
+				else if (transaction == (int)CustomerAccountType.MyBasket)
+				{
+					customer.MyBasket();
+				}
+				else if (transaction == (int)CustomerAccountType.Favorites)
+				{
+					customer.Favorites();
+				}
+				else if (transaction == (int)CustomerAccountType.Logout)
+				{
+					break;
+				}
+			}
+		}
+	}
+}

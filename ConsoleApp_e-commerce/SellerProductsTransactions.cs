@@ -9,7 +9,6 @@ namespace ConsoleApp_e_commerce
     class SellerProductsTransactions   //Satıcı
     {
         static Seller seller = new Seller();
-        static Products products = new Products();
         static User user = new User();
 
         public static void SellerAccount()    //Satıcı Hesabı
@@ -39,6 +38,10 @@ namespace ConsoleApp_e_commerce
                 else if(transaction == (int)SellerAccountType.DeleteProduct)
                 {
                     seller.AddProduct(Seller.productsTypeFinding());
+                }
+                else if(transaction == (int)SellerAccountType.Logout)
+                {
+                    break;
                 }
             }
             /*foreach (User sellerList in SellerList)

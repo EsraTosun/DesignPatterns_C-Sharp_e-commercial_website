@@ -48,7 +48,7 @@ namespace ConsoleApp_e_commerce
         {
             if (userType.Equals(UserType.Customer))
             {
-                Customer.CustomerAccount();
+                CustomerProductsTransacitons.CustomerAccount();
             }
             else
             {
@@ -187,7 +187,7 @@ namespace ConsoleApp_e_commerce
 
         void CustomerAccountGo()          //Müşteri hesabına git
         {
-            Customer.CustomerAccount();
+            CustomerProductsTransacitons.CustomerAccount();
         }
 
         void SellerAccountGo()          //Satıcı hesabına git
@@ -242,7 +242,7 @@ namespace ConsoleApp_e_commerce
             else if(userType == UserType.Seller)
             {
                 SellerList[ID].ToString();  */
-            }
-        }  
-    }
+        }
+    }  
+}
 
