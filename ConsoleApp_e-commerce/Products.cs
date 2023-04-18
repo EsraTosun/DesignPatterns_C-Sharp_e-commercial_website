@@ -68,7 +68,9 @@ namespace ConsoleApp_e_commerce
 
         public static void FindingDesiredProduct(int DesiredID)
         {
-
+            Pants.FindingDesiredPants(DesiredID);
+            Dress.FindingDesiredDress(DesiredID);
+            Tshirt.FindingDesiredTshirt(DesiredID);
         }
 
         public override string ToString()

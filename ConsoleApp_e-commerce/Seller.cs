@@ -26,6 +26,7 @@ namespace ConsoleApp_e_commerce
         public static List<Tshirt> tshirtsList = new List<Tshirt>();
         public static List<Pants> pantsList = new List<Pants>();
 
+        Products product = new Products();
         Dress dress = new Dress();
         Pants pants = new Pants();
         Tshirt tshirt = new Tshirt();
@@ -51,7 +52,7 @@ namespace ConsoleApp_e_commerce
         void PantsProductAdd()
         {
             pants.productType = ProductsType.pants;
-            pants.ID = pantsList.Count + 100;
+            pants.ID = pantsList.Count + 300;
             Console.WriteLine("Enter the price");  //Fiyatını giriniz
             pants.amount = Convert.ToInt32(Console.ReadLine());
             pants.color = Color.ColorFinfing();
@@ -61,11 +62,17 @@ namespace ConsoleApp_e_commerce
             pants.pantsFabricType = Fabrics.PantsFabricTypeFinding();
             pants.UserID = USERID;
             pantsList.Add(pants);
+
+            /* product.ID = pants.ID;
+            product.UserID = USERID;
+            product.productType = pants.productType;
+            product.amount = pants.amount;
+            productList.Add(product);  */
         }
         void TshirtProductAdd()
         {
             tshirt.productType = ProductsType.tshirt;
-            tshirt.ID = pantsList.Count + 200;
+            tshirt.ID = pantsList.Count + 400;
             Console.WriteLine("Enter the price");  //Fiyatını giriniz
             tshirt.amount = Convert.ToInt32(Console.ReadLine());
             tshirt.color = Color.ColorFinfing();
@@ -75,11 +82,17 @@ namespace ConsoleApp_e_commerce
             tshirt.tshirtFabricType = TshirtFabricType.Cotton;
             tshirt.UserID = USERID;
             tshirtsList.Add(tshirt);
+
+            /*product.ID = pants.ID;
+            product.UserID = USERID;
+            product.productType = pants.productType;
+            product.amount = pants.amount;
+            productList.Add(product);  */
         }
         void DressProductAdd()
         {
             dress.productType = ProductsType.pants;
-            dress.ID = pantsList.Count + 300;
+            dress.ID = pantsList.Count + 500;
             Console.WriteLine("Enter the price");  //Fiyatını giriniz
             dress.amount = Convert.ToInt32(Console.ReadLine());
             dress.color = Color.ColorFinfing();
@@ -89,6 +102,12 @@ namespace ConsoleApp_e_commerce
             dress.dressFabricType = Fabrics.DressFabricTypeFinding();
             dress.UserID = USERID;
             dressList.Add(dress);
+
+            /* product.ID = pants.ID;
+            product.UserID = USERID;
+            product.productType = pants.productType;
+            product.amount = pants.amount;
+            productList.Add(product);  */
         }
 
         public void DeleteProduct(ProductsType IncomingproductType)  //Ürün tipi

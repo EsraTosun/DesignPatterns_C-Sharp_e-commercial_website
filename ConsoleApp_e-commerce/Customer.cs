@@ -43,18 +43,15 @@ namespace ConsoleApp_e_commerce
             //İşlem yapılmaması için 1 ve 2 dışında bir sayı giriniz
             transaction = Convert.ToInt32(Console.ReadLine());
 
-            Products.FindingDesiredProduct(transactionID);
-            products.amount = desiredProductsAmound;
-            products.ID = desiredProductsIndex;
-            products.productType = desiredProductsType;
+            products.ID = transactionID;
 
             if (transaction == 1)
             {
-                favoritesList.Add(products);
+                myBasketList.Add(products);
             }
             else if(transaction == 2)
             {
-                myBasketList.Add(products);
+                favoritesList.Add(products);
             }
             else
             {
@@ -67,25 +64,13 @@ namespace ConsoleApp_e_commerce
         {
             for(int i=0; i<myBasketList.Count;  i++)
             {
-                Console.WriteLine("index: " + i);
-                if (myBasketList[i].productType == ProductsType.tshirt)
-                {
-                    Console.WriteLine(Seller.tshirtsList[myBasketList[i].ID].ToString());
-                }
-                else if(myBasketList[i].productType == ProductsType.dress)
-                {
-                    Console.WriteLine(Seller.dressList[myBasketList[i].ID].ToString());
-                }
-                else if(myBasketList[i].productType == ProductsType.pants)
-                {
-                    Console.WriteLine(Seller.tshirtsList[myBasketList[i].ID].ToString());
-                }
+                Products.FindingDesiredProduct(myBasketList[i].ID);
             }
 
             Console.WriteLine("If you want to remove it from mybasket, enter the index value");
             //Favorilerden çıkarmak isterseniz index değeri girin
-            Console.WriteLine("If you do not want-enter the number 1");
-            //İstemezseniz-1 sayısını giriniz
+            Console.WriteLine("If you do not want-enter the number 100");
+            //İstemezseniz -1 sayısını giriniz
             transaction = Convert.ToInt32(Console.ReadLine());
 
             MyBasketDelete();
@@ -100,19 +85,7 @@ namespace ConsoleApp_e_commerce
         {
             for (int i = 0; i < favoritesList.Count; i++)
             {
-                Console.WriteLine("index: "+i);
-                if (favoritesList[i].productType == ProductsType.tshirt)
-                {
-                    Console.WriteLine(Seller.tshirtsList[favoritesList[i].ID].ToString());
-                }
-                else if (favoritesList[i].productType == ProductsType.dress)
-                {
-                    Console.WriteLine(Seller.dressList[favoritesList[i].ID].ToString());
-                }
-                else if (favoritesList[i].productType == ProductsType.pants)
-                {
-                    Console.WriteLine(Seller.tshirtsList[favoritesList[i].ID].ToString());
-                }
+                Products.FindingDesiredProduct(favoritesList[i].ID);
             }
 
             Console.WriteLine("If you want to remove it from favorites, enter the index value");

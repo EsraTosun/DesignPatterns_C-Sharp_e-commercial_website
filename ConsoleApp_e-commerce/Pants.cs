@@ -12,17 +12,20 @@ namespace ConsoleApp_e_commerce
         public PantsAndDressBodys pantsAndDressBodys;      //Pantolon bedeni
         public PantsFabricType pantsFabricType;            //Pantolon kumaşı
 
-        /*public Pants()
+        public Pants()
             : base()
         {
 
         }
 
-        public Pants(int UserId, int ID, Brand brand, float amount, ColorType color, ProductsType productsType)
+        public Pants(int UserId, int ID, Brand brand, int amount, ColorType color, 
+            ProductsType productsType, PantTrotterPatterns pantTrotterPatterns,
+            PantsAndDressBodys pantsAndDressBodys, PantsFabricType pantsFabricType
+            )
             : base(UserId, ID, brand, amount, color, productsType)
         {
 
-        }  */
+        }  
 
         public static void SellerSortThePants()
         {
@@ -47,13 +50,9 @@ namespace ConsoleApp_e_commerce
         {
             for (int i = 0; i < Seller.pantsList.Count; i++)
             {
-                if (Seller.pantsList.ElementAt(i).ID == DesiredID)
+                if (Seller.pantsList[i].ID == DesiredID)
                 {
-                    Customer.desiredProductsAmound = Seller.pantsList.ElementAt(i).amount;
-                    Customer.desiredProductsIndex = i;
-                    Customer.desiredProductsType = ProductsType.pants;
-                    Console.WriteLine(Seller.pantsList.ElementAt(i));
-                    break;
+                    Console.WriteLine(Seller.pantsList.ElementAt(i).ToString());
                 }
             }
         }

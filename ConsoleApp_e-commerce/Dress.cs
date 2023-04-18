@@ -11,18 +11,21 @@ namespace ConsoleApp_e_commerce
         public DressLengthPatterns dressLengthPatterns;   //Elbise boyu
         public PantsAndDressBodys pantsAndDressBodys;      //Elbise bedeni
         public DressFabricType dressFabricType;          //Elbise kumaşı
-
-        /*public Dress()
+        
+        public Dress()
             : base()
         {
 
         }
 
-        public Dress(int UserId, int ID, Brand brand, float amount, ColorType color, ProductsType productsType)
+        public Dress(int UserId, int ID, Brand brand, int amount, ColorType color, 
+            ProductsType productsType, DressLengthPatterns dressLengthPatterns,
+            PantsAndDressBodys pantsAndDressBodys, DressFabricType dressFabricType
+            )
             : base(UserId, ID, brand, amount, color, productsType)
         {
 
-        }  */
+        }  
 
         public static void SortTheDress()
         {
@@ -47,13 +50,9 @@ namespace ConsoleApp_e_commerce
         {
             for (int i = 0; i < Seller.dressList.Count; i++)
             {
-                if (Seller.dressList.ElementAt(i).UserID == DesiredID)
+                if (Seller.dressList[i].ID == DesiredID)
                 {
-                    Customer.desiredProductsAmound = Seller.dressList.ElementAt(i).amount;
-                    Customer.desiredProductsIndex = i;
-                    Customer.desiredProductsType = ProductsType.dress;
                     Console.WriteLine(Seller.dressList.ElementAt(i));
-                    break;
                 }
             }
         }

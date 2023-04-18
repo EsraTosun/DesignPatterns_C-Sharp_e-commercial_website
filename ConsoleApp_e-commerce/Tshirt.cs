@@ -12,16 +12,19 @@ namespace ConsoleApp_e_commerce
         public TshirtBodys tshirtBodys;                //tişört bedeni
         public TshirtFabricType tshirtFabricType;     //tişört kumaşı
 
-        /*public Tshirt()
+        public Tshirt()
             :base()
         {
 
         }
-        public Tshirt(int UserId, int ID, Brand brand, float amount, ColorType color, ProductsType productsType)
+        public Tshirt(int UserId, int ID, Brand brand, int amount, ColorType color, 
+            ProductsType productsType, TshirtPatterns tshirtPatterns,
+            TshirtBodys tshirtBodys, TshirtFabricType tshirtFabricType
+            )
             :base(UserId, ID, brand, amount, color, productsType)
         {
 
-        }  */
+        }  
         public static void SortTheTshirt()
         {
             for (int i = 0; i < Seller.tshirtsList.Count; i++)
@@ -45,13 +48,9 @@ namespace ConsoleApp_e_commerce
         {
             for (int i = 0; i < Seller.tshirtsList.Count; i++)
             {
-                if (Seller.tshirtsList.ElementAt(i).UserID == DesiredID)
+                if (Seller.tshirtsList[i].ID == DesiredID)
                 {
-                    Customer.desiredProductsAmound = Seller.tshirtsList.ElementAt(i).amount;
-                    Customer.desiredProductsIndex = i;
-                    Customer.desiredProductsType = ProductsType.tshirt;
                     Console.WriteLine(Seller.tshirtsList.ElementAt(i));
-                    break;
                 }
             }
         }

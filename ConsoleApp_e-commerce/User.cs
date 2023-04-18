@@ -37,11 +37,22 @@ namespace ConsoleApp_e_commerce
         string EmailAddress;
         string Password;
         string Adress;
-        bool login = false;
+        public static bool login = false;
 
         public User()    //Önceden kayıtlı müşteri ve satıcıları burada ekle
         { 
 
+        }
+
+        public User(int ıD, string name, string surname, string phoneNumber, string emailAddress, string password, string adress)
+        {
+            ID = ıD;
+            Name = name;
+            Surname = surname;
+            PhoneNumber = phoneNumber;
+            EmailAddress = emailAddress;
+            Password = password;
+            Adress = adress;
         }
 
         public void UserTypeLeading()    //Kullanıcı tipi öğrenme 
@@ -235,13 +246,6 @@ namespace ConsoleApp_e_commerce
         {
             SellerUser();
             CustomerUser();
-            /*if(userType == UserType.Customer) 
-            {
-                CustomerList[ID].ToString();
-            }
-            else if(userType == UserType.Seller)
-            {
-                SellerList[ID].ToString();  */
         }
     }  
 }
