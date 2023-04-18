@@ -56,5 +56,17 @@ namespace ConsoleApp_e_commerce
                 }
             }
         }
+
+        public static int FindingPriceDesiredDress(int DesiredID)
+        {
+            for (int i = 0; i < Seller.dressList.Count; i++)
+            {
+                if (Seller.dressList[i].ID == DesiredID)
+                {
+                    return Seller.tshirtsList[i].amount;
+                }
+            }
+            return 0;
+        }
     }
 }

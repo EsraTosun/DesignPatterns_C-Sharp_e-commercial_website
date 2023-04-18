@@ -23,8 +23,8 @@ namespace ConsoleApp_e_commerce
         public static List<Products> favoritesList = new List<Products>();
         public static List<Products> myBasketList = new List<Products>();  
 
-        int transactionID = -1;
-        int transaction = -1;
+        static int transactionID = -1;
+        static int transaction = -1;
 
         public static int desiredProductsIndex = -1;
         public static int desiredProductsAmound = -1;
@@ -32,6 +32,7 @@ namespace ConsoleApp_e_commerce
 
         public void ProductsList()    //Ürünler
         {
+            Products products = new Products();
             products.ProductsList();
             Console.WriteLine("Enter the ID of the product you have selected");
             //Seçtiğiniz ürünün ID'si giriniz
@@ -43,6 +44,8 @@ namespace ConsoleApp_e_commerce
             //İşlem yapılmaması için 1 ve 2 dışında bir sayı giriniz
             transaction = Convert.ToInt32(Console.ReadLine());
 
+            PriceFinding();
+            products.amount = desiredProductsAmound;
             products.ID = transactionID;
 
             if (transaction == 1)
@@ -69,16 +72,17 @@ namespace ConsoleApp_e_commerce
 
             Console.WriteLine("If you want to remove it from mybasket, enter the index value");
             //Favorilerden çıkarmak isterseniz index değeri girin
-            Console.WriteLine("If you do not want-enter the number 100");
-            //İstemezseniz -1 sayısını giriniz
+            Console.WriteLine("If you do not want-enter the number -1");
+            //İstemezseniz 100 sayısını giriniz
             transaction = Convert.ToInt32(Console.ReadLine());
 
-            MyBasketDelete();
+            if(transaction >= 0 && transaction < myBasketList.Count) 
+                MyBasketDelete();
         }
 
         public void MyBasketDelete()
         {
-            favoritesList.RemoveAt(transaction);
+            myBasketList.RemoveAt(transaction);
         }
 
         public void Favorites()
@@ -94,7 +98,8 @@ namespace ConsoleApp_e_commerce
             //İstemezseniz-1 sayısını giriniz
             transaction = Convert.ToInt32(Console.ReadLine());
 
-            FavoritesDelete();
+            if (transaction >= 0 && transaction < favoritesList.Count)
+                FavoritesDelete();
         }
 
         public void FavoritesDelete()
@@ -105,6 +110,22 @@ namespace ConsoleApp_e_commerce
         public void PaymentTransaction()
         {
             Payment.PaymentListFinding();
+        }
+
+        public static void PriceFinding()
+        {
+            if(transactionID >= 300 && transactionID < 400)
+            {
+                desiredProductsAmound = Pants.FindingPriceDesiredPants(transactionID);
+            }
+            else if(transactionID >= 400 && transactionID < 500)
+            {
+                desiredProductsAmound = Tshirt.FindingPriceDesiredTshirt(transactionID);
+            }
+            else
+            {
+                desiredProductsAmound = Dress.FindingPriceDesiredDress(transactionID);    
+            }
         }
     }
 }

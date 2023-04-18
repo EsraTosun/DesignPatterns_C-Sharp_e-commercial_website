@@ -26,17 +26,7 @@ namespace ConsoleApp_e_commerce
         public ColorType color;
         public ProductsType productType;
 
-       // Products productsObject = new Products();
         int transaction = -1;
-
-        /*public static List<Products> productList = new List<Products>();
-        public static List<Dress> dressList = new List<Dress>();
-        public static List<Tshirt> tshirtsList = new List<Tshirt>();
-        public static List<Pants> pantsList = new List<Pants>();  */
-
-        /*Dress dress = new Dress();
-        Pants pants = new Pants();
-        Tshirt tshirt = new Tshirt(); */
 
         public Products()
         {

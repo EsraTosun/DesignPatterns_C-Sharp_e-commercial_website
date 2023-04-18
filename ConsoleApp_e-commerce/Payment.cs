@@ -11,10 +11,15 @@ namespace ConsoleApp_e_commerce
         Cash,   //Nakit 
         Card,   //Kart
     }
+
+    enum CargoType
+    {
+        Yurtiçi,
+    }
    
     class Payment
     {
-        public static int totalamount;
+        public static int totalamount = 0;
         public static List<String> paymentList = Enum.GetNames(typeof(PaymentType)).ToList();
 
         static int cardNumber;
@@ -44,10 +49,13 @@ namespace ConsoleApp_e_commerce
                 if (index == (int)PaymentType.Card)
                 {
                     CardInformation();
+                    Console.WriteLine("Your cargo will be delivered to the " + CargoType.Yurtiçi + " cargo");
+                    //Kargonuz Yurtiçi kargosuna verilecektir
                 }
                 else if (index == (int)PaymentType.Cash)
                 {
                     OrderCreadted();
+                    Console.WriteLine("Your cargo will be delivered to the " + CargoType.Yurtiçi + " cargo");
                 }
                 else
                 {
@@ -85,7 +93,7 @@ namespace ConsoleApp_e_commerce
         {
             for(int i= 0; i < Customer.myBasketList.Count; i++) 
             {
-                totalamount = Customer.myBasketList[i].amount;
+                totalamount += Customer.myBasketList[i].amount;
             }
         }
 
