@@ -223,7 +223,7 @@ namespace ConsoleApp_e_commerce
         {
             for (int i = 0; i < CustomerList.Count; i++)
             {
-                if (CustomerList[i].ID == ID) 
+                if (CustomerList[i].ID == USERID) 
                 {
                     Console.WriteLine(CustomerList[i].ToString());
                     break;

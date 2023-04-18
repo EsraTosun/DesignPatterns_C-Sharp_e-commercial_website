@@ -34,5 +34,6 @@ namespace ConsoleApp_e_commerce
         void MyBasket();  //Sepetim
         void Favorites();  //Favoriler
         void ProductsList();  //Ürünler
+        void PaymentTransaction();
     }
 }

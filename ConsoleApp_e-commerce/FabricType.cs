@@ -13,19 +13,22 @@ namespace ConsoleApp_e_commerce
         Satin,
         Polyester,
         Likra,
-        Cotton
+        Cotton,
+        Null,
     }
 
     public enum DressFabricType
     {
         Polyester,
         Viskon,
-        Cotton    //pamuk
+        Cotton,    //pamuk
+        Null,
     }
 
     public enum TshirtFabricType
     {
-        Cotton
+        Cotton,
+        Null,
     }
 
     public class Fabrics
@@ -35,7 +38,7 @@ namespace ConsoleApp_e_commerce
 
         public static void PantsFabricTypeWrite()
         {
-            for (int i = 0; i < PantsFabricTypelist.Count; i++)
+            for (int i = 0; i < PantsFabricTypelist.Count-1; i++)
             {
                 Console.WriteLine(i + "- " + PantsFabricTypelist[i]);
             }
@@ -59,15 +62,19 @@ namespace ConsoleApp_e_commerce
             {
                 return PantsFabricType.Likra;
             }
-            else
+            else if (index == (int)PantsFabricType.Cotton)
             {
                 return PantsFabricType.Cotton;
+            }
+            else
+            {
+                return PantsFabricType.Null;
             }
         }
 
         public static void DressFabricTypeeWrite()
         {
-            for (int i = 0; i < DressFabricTypelist.Count; i++)
+            for (int i = 0; i < DressFabricTypelist.Count-1; i++)
             {
                 Console.WriteLine(i + "- " + DressFabricTypelist[i]);
             }
@@ -87,9 +94,13 @@ namespace ConsoleApp_e_commerce
             {
                 return DressFabricType.Viskon;
             }
-            else
+            else if (index == (int)DressFabricType.Cotton)
             {
                 return DressFabricType.Cotton;
+            }
+            else
+            { 
+                return DressFabricType.Null; 
             }
         }
     }

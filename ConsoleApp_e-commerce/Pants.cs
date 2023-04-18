@@ -42,5 +42,20 @@ namespace ConsoleApp_e_commerce
                 Console.WriteLine(Seller.pantsList[i].ToString());
             }
         }
+
+        public static void FindingDesiredPants(int DesiredID)
+        {
+            for (int i = 0; i < Seller.pantsList.Count; i++)
+            {
+                if (Seller.pantsList.ElementAt(i).ID == DesiredID)
+                {
+                    Customer.desiredProductsAmound = Seller.pantsList.ElementAt(i).amount;
+                    Customer.desiredProductsIndex = i;
+                    Customer.desiredProductsType = ProductsType.pants;
+                    Console.WriteLine(Seller.pantsList.ElementAt(i));
+                    break;
+                }
+            }
+        }
     }
 }

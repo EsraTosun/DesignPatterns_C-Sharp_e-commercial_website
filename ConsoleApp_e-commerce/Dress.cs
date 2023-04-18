@@ -42,5 +42,20 @@ namespace ConsoleApp_e_commerce
                 }
             }
         }
+
+        public static void FindingDesiredDress(int DesiredID)
+        {
+            for (int i = 0; i < Seller.dressList.Count; i++)
+            {
+                if (Seller.dressList.ElementAt(i).UserID == DesiredID)
+                {
+                    Customer.desiredProductsAmound = Seller.dressList.ElementAt(i).amount;
+                    Customer.desiredProductsIndex = i;
+                    Customer.desiredProductsType = ProductsType.dress;
+                    Console.WriteLine(Seller.dressList.ElementAt(i));
+                    break;
+                }
+            }
+        }
     }
 }

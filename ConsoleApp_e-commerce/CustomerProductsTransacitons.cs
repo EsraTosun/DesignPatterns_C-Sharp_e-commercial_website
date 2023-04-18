@@ -10,7 +10,7 @@ namespace ConsoleApp_e_commerce
     {
 		static Customer customer = new Customer();
 		static User user = new User();
-		public static void CustomerAccount()    //Satıcı Hesabı
+		public static void CustomerAccount()    //Müşteri Hesabı
 		{
 			int transaction = -1;
 			while (true)
@@ -19,7 +19,8 @@ namespace ConsoleApp_e_commerce
 				Console.WriteLine("2- Products");  //Ürünlerini görüntüle
 				Console.WriteLine("3- My Basket");   //Sepetim
 				Console.WriteLine("4- Favorites");   //Favoriler
-				Console.WriteLine("5- Logout");  //Çıkış yap
+				Console.WriteLine("5- Payment");  //Ödeme
+				Console.WriteLine("6- Logout");  //Çıkış yap
 				transaction = Convert.ToInt32(Console.ReadLine());
 
 				if (transaction == (int)CustomerAccountType.AccountInformation)
@@ -38,7 +39,11 @@ namespace ConsoleApp_e_commerce
 				{
 					customer.Favorites();
 				}
-				else if (transaction == (int)CustomerAccountType.Logout)
+                else if (transaction == (int)CustomerAccountType.Payment)
+                {
+                    customer.PaymentTransaction();
+                }
+                else if (transaction == (int)CustomerAccountType.Logout)
 				{
 					break;
 				}

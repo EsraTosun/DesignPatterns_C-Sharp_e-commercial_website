@@ -55,6 +55,7 @@ namespace ConsoleApp_e_commerce
             Console.WriteLine("Enter the price");  //Fiyatını giriniz
             pants.amount = Convert.ToInt32(Console.ReadLine());
             pants.color = Color.ColorFinfing();
+            pants.brand = Brands.BrandListFinding();
             pants.pantsAndDressBodys = BodyChart.PantsAndDressBodysFinding();
             pants.pantTrotterPatterns = Patterns.PantTrotterPatternsFinding();
             pants.pantsFabricType = Fabrics.PantsFabricTypeFinding();
@@ -68,6 +69,7 @@ namespace ConsoleApp_e_commerce
             Console.WriteLine("Enter the price");  //Fiyatını giriniz
             tshirt.amount = Convert.ToInt32(Console.ReadLine());
             tshirt.color = Color.ColorFinfing();
+            tshirt.brand = Brands.BrandListFinding();
             tshirt.tshirtBodys = BodyChart.TshirtBodysFinding();
             tshirt.tshirtPatterns = Patterns.TshirtPatternsFinding();
             tshirt.tshirtFabricType = TshirtFabricType.Cotton;
@@ -81,6 +83,7 @@ namespace ConsoleApp_e_commerce
             Console.WriteLine("Enter the price");  //Fiyatını giriniz
             dress.amount = Convert.ToInt32(Console.ReadLine());
             dress.color = Color.ColorFinfing();
+            dress.brand = Brands.BrandListFinding();    
             dress.pantsAndDressBodys = BodyChart.PantsAndDressBodysFinding();
             dress.dressLengthPatterns = Patterns.DressLengthPatternsFinding();
             dress.dressFabricType = Fabrics.DressFabricTypeFinding();

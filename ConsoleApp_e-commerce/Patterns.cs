@@ -9,7 +9,8 @@ namespace ConsoleApp_e_commerce
     public enum TshirtPatterns  //tişört kalıpları
     {
         standard,
-        oversize
+        oversize,
+        Null,
     }
 
     public enum PantTrotterPatterns   //Pantolon paça kalıpları
@@ -17,6 +18,7 @@ namespace ConsoleApp_e_commerce
         tightTrotters,        //dar paça
         normalTrotters,       //normal paça
         wideTrotters,         //Geniş paça
+        Null,
     }
 
     public enum DressLengthPatterns  //elbise boy kalıpları
@@ -24,6 +26,7 @@ namespace ConsoleApp_e_commerce
         shortLenght,   //kısa boy
         kneeLength,    //diz boyu
         longLength,    //uzun boy
+        Null,
     }
 
     public class Patterns
@@ -34,7 +37,7 @@ namespace ConsoleApp_e_commerce
 
         public static void TshirtPatternsWrite()
         {
-            for (int i = 0; i < TshirtPatternslist.Count; i++)
+            for (int i = 0; i < TshirtPatternslist.Count-1; i++)
             {
                 Console.WriteLine(i + "- " + TshirtPatternslist[i]);
             }
@@ -50,15 +53,19 @@ namespace ConsoleApp_e_commerce
             {
                 return TshirtPatterns.standard;
             }
-            else
+            else if(index == (int)TshirtPatterns.oversize)
             {
                 return TshirtPatterns.oversize;
+            }
+            else
+            {
+                return TshirtPatterns.Null;
             }
         }
 
         public static void PantTrotterPatternsWrite()
         {
-            for (int i = 0; i < PantTrotterPatternslist.Count; i++)
+            for (int i = 0; i < PantTrotterPatternslist.Count - 1; i++)
             {
                 Console.WriteLine(i + "- " + PantTrotterPatternslist[i]);
             }
@@ -78,15 +85,19 @@ namespace ConsoleApp_e_commerce
             {
                 return PantTrotterPatterns.normalTrotters;
             }
-            else
+            else if(index == (int)PantTrotterPatterns.wideTrotters)
             {
                 return PantTrotterPatterns.wideTrotters;
+            }
+            else
+            {
+                return PantTrotterPatterns.Null;
             }
         }
 
         public static void DressLengthPatternsWrite()
         {
-            for (int i = 0; i < DressLengthPatternslist.Count; i++)
+            for (int i = 0; i < DressLengthPatternslist.Count - 1; i++)
             {
                 Console.WriteLine(i + "- " + DressLengthPatternslist[i]);
             }
@@ -106,9 +117,13 @@ namespace ConsoleApp_e_commerce
             {
                 return DressLengthPatterns.kneeLength;
             }
-            else
+            else if(index == (int)DressLengthPatterns.longLength)
             {
                 return DressLengthPatterns.longLength;
+            }
+            else
+            {
+                return DressLengthPatterns.Null;
             }
         }
     }

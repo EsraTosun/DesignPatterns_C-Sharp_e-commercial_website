@@ -40,5 +40,20 @@ namespace ConsoleApp_e_commerce
                 }
             }
         }
+
+        public static void FindingDesiredTshirt(int DesiredID)
+        {
+            for (int i = 0; i < Seller.tshirtsList.Count; i++)
+            {
+                if (Seller.tshirtsList.ElementAt(i).UserID == DesiredID)
+                {
+                    Customer.desiredProductsAmound = Seller.tshirtsList.ElementAt(i).amount;
+                    Customer.desiredProductsIndex = i;
+                    Customer.desiredProductsType = ProductsType.tshirt;
+                    Console.WriteLine(Seller.tshirtsList.ElementAt(i));
+                    break;
+                }
+            }
+        }
     }
 }

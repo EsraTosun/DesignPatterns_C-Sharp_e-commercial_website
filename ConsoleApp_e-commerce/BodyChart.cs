@@ -14,6 +14,7 @@ namespace ConsoleApp_e_commerce
         thirtyeight = 2,
         forty = 3,
         fortytwo = 4,
+        Null,
     }
 
     public enum TshirtBodys   //tişört bedenleri
@@ -23,6 +24,7 @@ namespace ConsoleApp_e_commerce
         small,
         medium,
         large,
+        Null,
     }
 
     public class BodyChart
@@ -32,7 +34,7 @@ namespace ConsoleApp_e_commerce
 
         public static void PantsAndDressBodysWrite()
         {
-            for (int i = 0; i < PantsAndDressBodyslist.Count; i++)
+            for (int i = 0; i < PantsAndDressBodyslist.Count-1; i++)
             {
                 Console.WriteLine(i + "- " + PantsAndDressBodyslist[i]);
             }
@@ -60,14 +62,18 @@ namespace ConsoleApp_e_commerce
             {
                 return PantsAndDressBodys.forty;
             }
-            else
+            else if(index == (int)PantsAndDressBodys.fortytwo)
             {
                 return PantsAndDressBodys.fortytwo;
+            }
+            else
+            {
+                return PantsAndDressBodys.Null;
             }
         }
         public static void TshirtBodysWrite()
         {
-            for (int i = 0; i < TshirtBodyslist.Count; i++)
+            for (int i = 0; i < TshirtBodyslist.Count-1; i++)
             {
                 Console.WriteLine(i + "- " + TshirtBodyslist[i]);
             }
@@ -95,9 +101,13 @@ namespace ConsoleApp_e_commerce
             {
                 return TshirtBodys.medium;
             }
-            else
+            else if (index == (int)TshirtBodys.large)
             {
                 return TshirtBodys.large;
+            }
+            else
+            {
+                return TshirtBodys.Null;
             }
         }
     }

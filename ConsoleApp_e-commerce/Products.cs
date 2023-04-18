@@ -66,6 +66,11 @@ namespace ConsoleApp_e_commerce
             Pants.SortThePants();
         }
 
+        public static void FindingDesiredProduct(int DesiredID)
+        {
+
+        }
+
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder();
