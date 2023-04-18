@@ -21,19 +21,4 @@ namespace ConsoleApp_e_commerce
         void NewCreatingAnAccount();   //Hesap Oluşturma
         //void AccountInformation();    //Hesap Bilgileri
     }
-
-    interface ISeller //Satıcı
-    {
-        void AddProduct(ProductsType IncomingproductType);   //Ürün Ekle
-        void DeleteProduct(ProductsType IncomingproductType);  //Ürün Sil
-        void ViewYourProducts();   //Ürünlerini görüntüle
-    }
-
-    interface ICustomer  //Müşteri
-    {
-        void MyBasket();  //Sepetim
-        void Favorites();  //Favoriler
-        void ProductsList();  //Ürünler
-        void PaymentTransaction();
-    }
 }
