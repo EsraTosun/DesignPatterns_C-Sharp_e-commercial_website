@@ -67,6 +67,7 @@ namespace ConsoleApp_e_commerce
         {
             for(int i=0; i<myBasketList.Count;  i++)
             {
+                Console.WriteLine("index: " + i);
                 if (myBasketList[i].productType == ProductsType.tshirt)
                 {
                     Console.WriteLine(Seller.tshirtsList[myBasketList[i].ID].ToString());
@@ -80,12 +81,26 @@ namespace ConsoleApp_e_commerce
                     Console.WriteLine(Seller.tshirtsList[myBasketList[i].ID].ToString());
                 }
             }
+
+            Console.WriteLine("If you want to remove it from mybasket, enter the index value");
+            //Favorilerden çıkarmak isterseniz index değeri girin
+            Console.WriteLine("If you do not want-enter the number 1");
+            //İstemezseniz-1 sayısını giriniz
+            transaction = Convert.ToInt32(Console.ReadLine());
+
+            MyBasketDelete();
+        }
+
+        public void MyBasketDelete()
+        {
+            favoritesList.RemoveAt(transaction);
         }
 
         public void Favorites()
         {
             for (int i = 0; i < favoritesList.Count; i++)
             {
+                Console.WriteLine("index: "+i);
                 if (favoritesList[i].productType == ProductsType.tshirt)
                 {
                     Console.WriteLine(Seller.tshirtsList[favoritesList[i].ID].ToString());
@@ -99,6 +114,19 @@ namespace ConsoleApp_e_commerce
                     Console.WriteLine(Seller.tshirtsList[favoritesList[i].ID].ToString());
                 }
             }
+
+            Console.WriteLine("If you want to remove it from favorites, enter the index value");
+            //Favorilerden çıkarmak isterseniz index değeri girin
+            Console.WriteLine("If you do not want-enter the number 1");
+            //İstemezseniz-1 sayısını giriniz
+            transaction = Convert.ToInt32(Console.ReadLine());
+
+            FavoritesDelete();
+        }
+
+        public void FavoritesDelete()
+        {
+            favoritesList.RemoveAt(transaction);
         }
 
         public void PaymentTransaction()
