@@ -23,23 +23,24 @@ namespace ConsoleApp_e_commerce
                 Console.WriteLine("5- Logout");  //Çıkış yap
                 transaction = Convert.ToInt32(Console.ReadLine());
 
-                if(transaction == (int)SellerAccountType.AccountInformation)
+                if (transaction == (int)SellerAccountType.AccountInformation)
                 {
                     user.SellerUser();
                 }
-                else if(transaction == (int)SellerAccountType.ViewYourProducts)
+                else if (transaction == (int)SellerAccountType.ViewYourProducts)
                 {
                     seller.ViewYourProducts();
-                }  
-                else if(transaction == (int)SellerAccountType.AddProduct)
+                }
+                else if (transaction == (int)SellerAccountType.AddProduct)
                 {
                     seller.AddProduct(Seller.productsTypeFinding());
                 }
-                else if(transaction == (int)SellerAccountType.DeleteProduct)
+                else if (transaction == (int)SellerAccountType.DeleteProduct)
                 {
-                    seller.AddProduct(Seller.productsTypeFinding());
+                    seller.ViewYourProducts();
+                    seller.DeleteProduct(Seller.productsTypeFinding());
                 }
-                else if(transaction == (int)SellerAccountType.Logout)
+                else if (transaction == (int)SellerAccountType.Logout)
                 {
                     break;
                 }
@@ -47,7 +48,7 @@ namespace ConsoleApp_e_commerce
             /*foreach (User sellerList in SellerList)
             {
                 Console.WriteLine(sellerList.ToString());
-            }  */           
+            }  */
         }
     }
 }
