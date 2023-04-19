@@ -15,13 +15,13 @@ namespace ConsoleApp_e_commerce
         Payment = 5,
         Logout = 6,
     }
-    class Customer:User, ICustomer  //Müşteri
+    class Customer : User, ICustomer  //Müşteri
     {
         static Products products = new Products();
         static User user = new User();
 
         public static List<Products> favoritesList = new List<Products>();
-        public static List<Products> myBasketList = new List<Products>();  
+        public static List<Products> myBasketList = new List<Products>();
 
         static int transactionID = -1;
         static int transaction = -1;
@@ -52,7 +52,7 @@ namespace ConsoleApp_e_commerce
             {
                 myBasketList.Add(products);
             }
-            else if(transaction == 2)
+            else if (transaction == 2)
             {
                 favoritesList.Add(products);
             }
@@ -65,7 +65,7 @@ namespace ConsoleApp_e_commerce
 
         public void MyBasket()
         {
-            for(int i=0; i<myBasketList.Count;  i++)
+            for (int i = 0; i < myBasketList.Count; i++)
             {
                 Products.FindingDesiredProduct(myBasketList[i].ID);
             }
@@ -76,7 +76,7 @@ namespace ConsoleApp_e_commerce
             //İstemezseniz 100 sayısını giriniz
             transaction = Convert.ToInt32(Console.ReadLine());
 
-            if(transaction >= 0 && transaction < myBasketList.Count) 
+            if (transaction >= 0 && transaction < myBasketList.Count)
                 MyBasketDelete();
         }
 
@@ -94,7 +94,7 @@ namespace ConsoleApp_e_commerce
 
             Console.WriteLine("If you want to remove it from favorites, enter the index value");
             //Favorilerden çıkarmak isterseniz index değeri girin
-            Console.WriteLine("If you do not want-enter the number 1");
+            Console.WriteLine("If you do not want enter the number -1");
             //İstemezseniz-1 sayısını giriniz
             transaction = Convert.ToInt32(Console.ReadLine());
 
@@ -114,17 +114,17 @@ namespace ConsoleApp_e_commerce
 
         public static void PriceFinding()
         {
-            if(transactionID >= 300 && transactionID < 400)
+            if (transactionID >= 300 && transactionID < 400)
             {
                 desiredProductsAmound = Pants.FindingPriceDesiredPants(transactionID);
             }
-            else if(transactionID >= 400 && transactionID < 500)
+            else if (transactionID >= 400 && transactionID < 500)
             {
                 desiredProductsAmound = Tshirt.FindingPriceDesiredTshirt(transactionID);
             }
             else
             {
-                desiredProductsAmound = Dress.FindingPriceDesiredDress(transactionID);    
+                desiredProductsAmound = Dress.FindingPriceDesiredDress(transactionID);
             }
         }
     }
