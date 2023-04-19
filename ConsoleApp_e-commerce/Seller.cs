@@ -12,9 +12,9 @@ namespace ConsoleApp_e_commerce
     {
         AccountInformation = 1,
         ViewYourProducts = 2,
-        AddProduct = 2,
-        DeleteProduct = 3,
-        Logout = 4,
+        AddProduct = 3,
+        DeleteProduct = 4,
+        Logout = 5,
     }
 
     class Seller : User, ISeller
@@ -112,6 +112,9 @@ namespace ConsoleApp_e_commerce
 
         public void DeleteProduct(ProductsType IncomingproductType)  //Ürün tipi
         {
+            Console.WriteLine("Delete ID: ");
+            transaction = Convert.ToInt32(Console.ReadLine());
+
             if (IncomingproductType == ProductsType.pants)
             {
                 PantsProductDelete();
@@ -128,24 +131,15 @@ namespace ConsoleApp_e_commerce
 
         void PantsProductDelete()
         {
-            Pants.SortThePants();
-            transaction = Convert.ToInt32(Console.ReadLine());
-
-            pantsList.RemoveAt(transaction - 100);
+            pantsList.RemoveAt(transaction - 300);
         }
         void TshirtProductDelete()
         {
-            Tshirt.SortTheTshirt();
-            transaction = Convert.ToInt32(Console.ReadLine());
-
-            tshirtsList.RemoveAt(transaction - 200);
+            tshirtsList.RemoveAt(transaction - 400);
         }
         void DressProductDelete()
         {
-            Dress.SortTheDress();
-            transaction = Convert.ToInt32(Console.ReadLine());
-
-            dressList.RemoveAt(transaction - 300);
+            dressList.RemoveAt(transaction - 500);
         }
 
 

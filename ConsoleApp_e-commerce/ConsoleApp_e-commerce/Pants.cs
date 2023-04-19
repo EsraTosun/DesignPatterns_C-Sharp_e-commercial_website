@@ -18,14 +18,14 @@ namespace ConsoleApp_e_commerce
 
         }
 
-        public Pants(int UserId, int ID, Brand brand, int amount, ColorType color, 
+        public Pants(int UserId, int ID, Brand brand, int amount, ColorType color,
             ProductsType productsType, PantTrotterPatterns pantTrotterPatterns,
             PantsAndDressBodys pantsAndDressBodys, PantsFabricType pantsFabricType
             )
             : base(UserId, ID, brand, amount, color, productsType)
         {
 
-        }  
+        }
 
         public static void SellerSortThePants()
         {
@@ -40,7 +40,7 @@ namespace ConsoleApp_e_commerce
 
         public static void SortThePants()
         {
-            for(int i = 0;i < Seller.pantsList.Count;i++)
+            for (int i = 0; i < Seller.pantsList.Count; i++)
             {
                 Console.WriteLine(Seller.pantsList[i].ToString());
             }

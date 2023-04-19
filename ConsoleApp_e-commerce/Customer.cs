@@ -94,7 +94,7 @@ namespace ConsoleApp_e_commerce
 
             Console.WriteLine("If you want to remove it from favorites, enter the index value");
             //Favorilerden çıkarmak isterseniz index değeri girin
-            Console.WriteLine("If you do not want-enter the number 1");
+            Console.WriteLine("If you do not want enter the number -1");
             //İstemezseniz-1 sayısını giriniz
             transaction = Convert.ToInt32(Console.ReadLine());
 

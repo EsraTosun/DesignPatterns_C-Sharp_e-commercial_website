@@ -37,7 +37,8 @@ namespace ConsoleApp_e_commerce
                 }
                 else if(transaction == (int)SellerAccountType.DeleteProduct)
                 {
-                    seller.AddProduct(Seller.productsTypeFinding());
+                    seller.ViewYourProducts();
+                    seller.DeleteProduct(Seller.productsTypeFinding());
                 }
                 else if(transaction == (int)SellerAccountType.Logout)
                 {

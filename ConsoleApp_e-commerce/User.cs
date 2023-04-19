@@ -127,7 +127,7 @@ namespace ConsoleApp_e_commerce
                 if (CustomerList[i].EmailAddress.Equals(EmailAddress) 
                     && CustomerList[i].Password.Equals(Password))
                 {
-                    USERID = i;
+                    USERID = CustomerList[i].ID;
                     login = true;
                     CustomerAccountGo();
                     break;
@@ -142,7 +142,7 @@ namespace ConsoleApp_e_commerce
                 if (SellerList[i].EmailAddress.Equals(EmailAddress)
                     && SellerList[i].Password.Equals(Password))
                 {
-                    USERID = i;
+                    USERID = SellerList[i].ID;
                     login = true;
                     SellerAccountGo();
                     break;

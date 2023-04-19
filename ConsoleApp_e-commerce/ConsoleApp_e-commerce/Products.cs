@@ -32,7 +32,7 @@ namespace ConsoleApp_e_commerce
         {
 
         }
-        public Products(int UserId,int ID,Brand brand,int amount,ColorType color,ProductsType productsType)
+        public Products(int UserId, int ID, Brand brand, int amount, ColorType color, ProductsType productsType)
         {
             this.UserID = UserId;
             this.ID = ID;
