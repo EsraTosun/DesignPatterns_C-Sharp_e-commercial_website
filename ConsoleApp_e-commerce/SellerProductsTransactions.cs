@@ -42,7 +42,7 @@ namespace ConsoleApp_e_commerce
                 }
                 else if(transaction == (int)SellerAccountType.Logout)
                 {
-                    break;
+                    return;
                 }
             }
             /*foreach (User sellerList in SellerList)
