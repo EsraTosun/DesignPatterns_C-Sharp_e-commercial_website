@@ -43,17 +43,17 @@ namespace ConsoleApp_e_commerce
 				{
 					customer.Favorites();
 				}
-                else if (transaction == (int)CustomerAccountType.Payment)
-                {
+				else if (transaction == (int)CustomerAccountType.Payment)
+				{
 					if(User.login)
 						customer.PaymentTransaction();
 
 					else
 						Console.WriteLine("Log in");  // Oturum aç
-                }
-                else if (transaction == (int)CustomerAccountType.Logout)
+				}
+				else if (transaction == (int)CustomerAccountType.Logout)
 				{
-					break;
+					return;
 				}
 			}
 		}
