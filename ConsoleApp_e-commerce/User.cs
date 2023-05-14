@@ -152,13 +152,7 @@ namespace ConsoleApp_e_commerce
 
         public void LogOut()  //Kullancıya ait tüm verileri nullarız Çünkü oturum kapattıktan sonra 
         {                     //ulaşmasını engellemek içim.
-            Name = null;
-            Surname = null;
-            PhoneNumber = null;
-            EmailAddress = null;
-            Password = null;
-            Adress = null;
-            login = false;
+           return;
         }
 
         public void NewCreatingAnAccount()
