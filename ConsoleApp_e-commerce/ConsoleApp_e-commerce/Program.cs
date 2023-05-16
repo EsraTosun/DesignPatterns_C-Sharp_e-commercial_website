@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,14 +15,12 @@ namespace ConsoleApp_e_commerce
             SavedUserData();
             RunAccount();
 
-            //Color.ColorWrite();
-
             Console.ReadLine();
         }
 
         static void RunAccount()
         {
-            User user = new User();
+            UserTransacions userTransactions = new UserTransacions();
 
             int transaction = -1;
 
@@ -36,7 +36,7 @@ namespace ConsoleApp_e_commerce
                     break;
                 }
 
-                else if (transaction == 2)  
+                else if (transaction == 2)
                 {
                     User.userType = UserType.Customer;
                     break;
@@ -46,8 +46,8 @@ namespace ConsoleApp_e_commerce
                     Console.WriteLine("You made the wrong choice");  //Yanlış tercih yaptınız
                 }
             }
+            userTransactions.UserTransactionsMenu();
 
-            user.UserTransactions();
         }
 
         static void SavedUserData()    //Kayıtlı Kişi Veriler
@@ -79,65 +79,155 @@ namespace ConsoleApp_e_commerce
 
         static void SavedDressData()    //Kayıtlı Ürün Veriler
         {
+           /* (int UserId, int ID, String brand, int amount, String color, String productsType,
+            String Patterns, String Bodys, String FabricType)  */
+            Products products = new Products(200,1000, 
+                Enum.GetName(typeof(BrandType), 0), 
+                100, 
+                Enum.GetName(typeof(ColorType), 0), 
+                Enum.GetName(typeof(ProductsType), 3),
+                Enum.GetName(typeof(PatternsType), 1),
+                Enum.GetName(typeof(BodyType), 2),
+                Enum.GetName(typeof(FabricType), 3));
+            Products products1 = new Products(201, 1001,
+                Enum.GetName(typeof(BrandType), 0),
+                100,
+                Enum.GetName(typeof(ColorType), 3),
+                Enum.GetName(typeof(ProductsType), 3),
+                Enum.GetName(typeof(PatternsType), 4),
+                Enum.GetName(typeof(BodyType), 2),
+                Enum.GetName(typeof(FabricType), 3));
+            Products products2 = new Products(202, 1002,
+                Enum.GetName(typeof(BrandType), 3),
+                100,
+                Enum.GetName(typeof(ColorType), 1),
+                Enum.GetName(typeof(ProductsType), 3),
+                Enum.GetName(typeof(PatternsType), 1),
+                Enum.GetName(typeof(BodyType), 1),
+                Enum.GetName(typeof(FabricType), 1));
+            Products products3 = new Products(203, 1003,
+                Enum.GetName(typeof(BrandType), 2),
+                100,
+                Enum.GetName(typeof(ColorType), 2),
+                Enum.GetName(typeof(ProductsType), 3),
+                Enum.GetName(typeof(PatternsType), 2),
+                Enum.GetName(typeof(BodyType), 2),
+                Enum.GetName(typeof(FabricType), 2));
+            Products products4 = new Products(200, 1004,
+                Enum.GetName(typeof(BrandType), 0),
+                100,
+                Enum.GetName(typeof(ColorType), 3),
+                Enum.GetName(typeof(ProductsType), 3),
+                Enum.GetName(typeof(PatternsType), 3),
+                Enum.GetName(typeof(BodyType), 3),
+                Enum.GetName(typeof(FabricType), 3));
 
-            Dress dress = new Dress(200,500,Brand.Mavi,100,ColorType.Black,ProductsType.dress,
-                DressLengthPatterns.longLength,PantsAndDressBodys.fortytwo,DressFabricType.Cotton);
-            Dress dress1 = new Dress(201, 501, Brand.Defacto, 200, ColorType.Red, ProductsType.dress,
-                DressLengthPatterns.longLength, PantsAndDressBodys.fortytwo, DressFabricType.Viskon);
-            Dress dress2 = new Dress(202, 502, Brand.Lcwakiki, 300, ColorType.Black, ProductsType.dress,
-                DressLengthPatterns.longLength, PantsAndDressBodys.forty, DressFabricType.Cotton);
-            Dress dress3 = new Dress(203, 503, Brand.Lcwakiki, 400, ColorType.Green, ProductsType.dress,
-                DressLengthPatterns.longLength, PantsAndDressBodys.standard, DressFabricType.Polyester);
-            Dress dress4 = new Dress(200, 504, Brand.Mavi, 500, ColorType.Red, ProductsType.dress,
-                DressLengthPatterns.longLength, PantsAndDressBodys.thirtsix, DressFabricType.Cotton);
-
-            Seller.dressList.Add(dress);
-            Seller.dressList.Add(dress1);
-            Seller.dressList.Add(dress2);
-            Seller.dressList.Add(dress3);
-            Seller.dressList.Add(dress4);
+            Seller.productList.Add(products);
+            Seller.productList.Add(products1);
+            Seller.productList.Add(products2);
+            Seller.productList.Add(products3);
+            Seller.productList.Add(products4);
         }
 
         static void SavedTshirtData()    //Kayıtlı Ürün Veriler
         {
+            Products products = new Products(201, 1005,
+                Enum.GetName(typeof(BrandType), 1),
+                100,
+                Enum.GetName(typeof(ColorType), 2),
+                Enum.GetName(typeof(ProductsType), 2),
+                Enum.GetName(typeof(PatternsType), 1),
+                Enum.GetName(typeof(BodyType), 1),
+                Enum.GetName(typeof(FabricType), 2));
+            Products products1 = new Products(202, 1006,
+                Enum.GetName(typeof(BrandType), 3),
+                100,
+                Enum.GetName(typeof(ColorType), 1),
+                Enum.GetName(typeof(ProductsType), 2),
+                Enum.GetName(typeof(PatternsType), 3),
+                Enum.GetName(typeof(BodyType), 1),
+                Enum.GetName(typeof(FabricType), 2));
+            Products products2 = new Products(203, 1007,
+                Enum.GetName(typeof(BrandType), 3),
+                100,
+                Enum.GetName(typeof(ColorType), 3),
+                Enum.GetName(typeof(ProductsType), 2),
+                Enum.GetName(typeof(PatternsType), 2),
+                Enum.GetName(typeof(BodyType), 1),
+                Enum.GetName(typeof(FabricType), 1));
+            Products products3 = new Products(200, 1008,
+                Enum.GetName(typeof(BrandType), 0),
+                100,
+                Enum.GetName(typeof(ColorType), 2),
+                Enum.GetName(typeof(ProductsType), 2),
+                Enum.GetName(typeof(PatternsType), 3),
+                Enum.GetName(typeof(BodyType), 3),
+                Enum.GetName(typeof(FabricType), 1));
+            Products products4 = new Products(201, 1009,
+                Enum.GetName(typeof(BrandType), 1),
+                100,
+                Enum.GetName(typeof(ColorType), 1),
+                Enum.GetName(typeof(ProductsType), 2),
+                Enum.GetName(typeof(PatternsType), 3),
+                Enum.GetName(typeof(BodyType), 2),
+                Enum.GetName(typeof(FabricType), 0));
 
-            Tshirt tshirt = new Tshirt(2001, 400, Brand.Mavi, 100, ColorType.Black, ProductsType.tshirt,
-                TshirtPatterns.oversize, TshirtBodys.small, TshirtFabricType.Cotton);
-            Tshirt tshirt1 = new Tshirt(201, 401, Brand.Defacto, 200, ColorType.Red, ProductsType.tshirt,
-                TshirtPatterns.oversize, TshirtBodys.small, TshirtFabricType.Cotton);
-            Tshirt tshirt2 = new Tshirt(203, 402, Brand.Lcwakiki, 300, ColorType.Black, ProductsType.tshirt,
-                TshirtPatterns.oversize, TshirtBodys.small, TshirtFabricType.Cotton);
-            Tshirt tshirt3 = new Tshirt(203, 403, Brand.Lcwakiki, 400, ColorType.Green, ProductsType.tshirt,
-                TshirtPatterns.oversize, TshirtBodys.small, TshirtFabricType.Cotton);
-            Tshirt tshirt4 = new Tshirt(202, 404, Brand.Mavi, 500, ColorType.Red, ProductsType.tshirt,
-                TshirtPatterns.oversize, TshirtBodys.small, TshirtFabricType.Cotton);
-
-            Seller.tshirtsList.Add(tshirt);
-            Seller.tshirtsList.Add(tshirt1);
-            Seller.tshirtsList.Add(tshirt2);
-            Seller.tshirtsList.Add(tshirt3);
-            Seller.tshirtsList.Add(tshirt4);
+            Seller.productList.Add(products);
+            Seller.productList.Add(products1);
+            Seller.productList.Add(products2);
+            Seller.productList.Add(products3);
+            Seller.productList.Add(products4);
         }
 
         static void SavedPantsData()    //Kayıtlı Ürün Veriler
         {
 
-            Pants pants = new Pants(200, 300, Brand.Mavi, 100, ColorType.Black, ProductsType.pants,
-                PantTrotterPatterns.tightTrotters,PantsAndDressBodys.thirtyeight,PantsFabricType.Likra);
-            Pants pants1 = new Pants(200, 301, Brand.Lcwakiki, 450, ColorType.Blue, ProductsType.pants,
-                PantTrotterPatterns.wideTrotters, PantsAndDressBodys.thirtyeight, PantsFabricType.Satin);
-            Pants pants2 = new Pants(203, 302, Brand.Lcwakiki, 150, ColorType.Blue, ProductsType.pants,
-                PantTrotterPatterns.normalTrotters, PantsAndDressBodys.thirtyeight, PantsFabricType.Polyester);
-            Pants pants3 = new Pants(201, 303, Brand.Defacto, 300, ColorType.Black, ProductsType.pants,
-                PantTrotterPatterns.wideTrotters, PantsAndDressBodys.thirtyeight, PantsFabricType.Cotton);
-            Pants pants4 = new Pants(202, 304, Brand.Mavi, 200, ColorType.Black, ProductsType.pants,
-                PantTrotterPatterns.wideTrotters, PantsAndDressBodys.thirtyeight, PantsFabricType.Cotton);
+            Products products = new Products(202, 1010,
+                Enum.GetName(typeof(BrandType), 1),
+                100,
+                Enum.GetName(typeof(ColorType), 2),
+                Enum.GetName(typeof(ProductsType), 1),
+                Enum.GetName(typeof(PatternsType), 3),
+                Enum.GetName(typeof(BodyType), 2),
+                Enum.GetName(typeof(FabricType), 1));
+            Products products1 = new Products(203, 1011,
+                Enum.GetName(typeof(BrandType), 1),
+                100,
+                Enum.GetName(typeof(ColorType), 1),
+                Enum.GetName(typeof(ProductsType), 1),
+                Enum.GetName(typeof(PatternsType), 1),
+                Enum.GetName(typeof(BodyType), 1),
+                Enum.GetName(typeof(FabricType), 1));
+            Products products2 = new Products(200, 1012,
+                Enum.GetName(typeof(BrandType), 2),
+                100,
+                Enum.GetName(typeof(ColorType), 2),
+                Enum.GetName(typeof(ProductsType), 1),
+                Enum.GetName(typeof(PatternsType), 2),
+                Enum.GetName(typeof(BodyType), 2),
+                Enum.GetName(typeof(FabricType), 2));
+            Products products3 = new Products(201, 1013,
+                Enum.GetName(typeof(BrandType), 3),
+                100,
+                Enum.GetName(typeof(ColorType), 3),
+                Enum.GetName(typeof(ProductsType), 1),
+                Enum.GetName(typeof(PatternsType), 3),
+                Enum.GetName(typeof(BodyType), 3),
+                Enum.GetName(typeof(FabricType), 4));
+            Products products4 = new Products(202, 1014,
+                Enum.GetName(typeof(BrandType), 4),
+                100,
+                Enum.GetName(typeof(ColorType), 4),
+                Enum.GetName(typeof(ProductsType), 1),
+                Enum.GetName(typeof(PatternsType), 4),
+                Enum.GetName(typeof(BodyType), 4),
+                Enum.GetName(typeof(FabricType), 4));
 
-            Seller.pantsList.Add(pants);
-            Seller.pantsList.Add(pants1);
-            Seller.pantsList.Add(pants2);
-            Seller.pantsList.Add(pants3);
-            Seller.pantsList.Add(pants4);
+            Seller.productList.Add(products);
+            Seller.productList.Add(products1);
+            Seller.productList.Add(products2);
+            Seller.productList.Add(products3);
+            Seller.productList.Add(products4);
         }
 
     }

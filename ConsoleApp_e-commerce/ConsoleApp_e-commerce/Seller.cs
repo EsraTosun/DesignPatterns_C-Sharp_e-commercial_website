@@ -20,160 +20,61 @@ namespace ConsoleApp_e_commerce
     class Seller : User, ISeller
     {
         int transaction = -1;
+        int index = 0;
 
         public static List<Products> productList = new List<Products>();
-        public static List<Dress> dressList = new List<Dress>();
-        public static List<Tshirt> tshirtsList = new List<Tshirt>();
-        public static List<Pants> pantsList = new List<Pants>();
 
-        Products product = new Products();
-        Dress dress = new Dress();
-        Pants pants = new Pants();
-        Tshirt tshirt = new Tshirt();
-        User user = new User();
+        public static Products products = new Products();
+        public static UserTransacions userTransacions = new UserTransacions();
 
-
-        public void AddProduct(ProductsType IncomingproductType)  //Ürün tipi
+        public static int DesiredID;
+        public void AccountInformation()
         {
-            if (IncomingproductType == ProductsType.pants)
-            {
-                PantsProductAdd();
-            }
-            else if (IncomingproductType == ProductsType.tshirt)
-            {
-                TshirtProductAdd();
-            }
-            else if (IncomingproductType == ProductsType.dress)
-            {
-                DressProductAdd();
-            }
+            UserTransacions.SellerUser();         
         }
 
-        void PantsProductAdd()
+        public void AddProduct()
         {
-            pants.productType = ProductsType.pants;
-            pants.ID = pantsList.Count + 300;
+            Products product = new Products();
+
+            product.productType = productsTypeFinding();
+            product.ID = productList.Count + 1000;
             Console.WriteLine("Enter the price");  //Fiyatını giriniz
-            pants.amount = Convert.ToInt32(Console.ReadLine());
-            pants.color = Color.ColorFinfing();
-            pants.brand = Brands.BrandListFinding();
-            pants.pantsAndDressBodys = BodyChart.PantsAndDressBodysFinding();
-            pants.pantTrotterPatterns = Patterns.PantTrotterPatternsFinding();
-            pants.pantsFabricType = Fabrics.PantsFabricTypeFinding();
-            pants.UserID = USERID;
-            pantsList.Add(pants);
-
-            /* product.ID = pants.ID;
+            product.amount = Convert.ToInt32(Console.ReadLine());
+            product.color = Color.ColorFinfing();
+            product.brand = Brands.BrandListFinding();
+            product.Bodys = BodyChart.BodysFinding();
+            product.Patterns = Patterns.PatternsFinding();
+            product.FabricType = Fabrics.PantsFabricTypeFinding();
             product.UserID = USERID;
-            product.productType = pants.productType;
-            product.amount = pants.amount;
-            productList.Add(product);  */
-        }
-        void TshirtProductAdd()
-        {
-            tshirt.productType = ProductsType.tshirt;
-            tshirt.ID = pantsList.Count + 400;
-            Console.WriteLine("Enter the price");  //Fiyatını giriniz
-            tshirt.amount = Convert.ToInt32(Console.ReadLine());
-            tshirt.color = Color.ColorFinfing();
-            tshirt.brand = Brands.BrandListFinding();
-            tshirt.tshirtBodys = BodyChart.TshirtBodysFinding();
-            tshirt.tshirtPatterns = Patterns.TshirtPatternsFinding();
-            tshirt.tshirtFabricType = TshirtFabricType.Cotton;
-            tshirt.UserID = USERID;
-            tshirtsList.Add(tshirt);
-
-            /*product.ID = pants.ID;
-            product.UserID = USERID;
-            product.productType = pants.productType;
-            product.amount = pants.amount;
-            productList.Add(product);  */
-        }
-        void DressProductAdd()
-        {
-            dress.productType = ProductsType.pants;
-            dress.ID = pantsList.Count + 500;
-            Console.WriteLine("Enter the price");  //Fiyatını giriniz
-            dress.amount = Convert.ToInt32(Console.ReadLine());
-            dress.color = Color.ColorFinfing();
-            dress.brand = Brands.BrandListFinding();
-            dress.pantsAndDressBodys = BodyChart.PantsAndDressBodysFinding();
-            dress.dressLengthPatterns = Patterns.DressLengthPatternsFinding();
-            dress.dressFabricType = Fabrics.DressFabricTypeFinding();
-            dress.UserID = USERID;
-            dressList.Add(dress);
-
-            /* product.ID = pants.ID;
-            product.UserID = USERID;
-            product.productType = pants.productType;
-            product.amount = pants.amount;
-            productList.Add(product);  */
+            productList.Add(product);
         }
 
-        public void DeleteProduct(ProductsType IncomingproductType)  //Ürün tipi
+        public void DeleteProduct()  //Ürün tipi
         {
             Console.WriteLine("Delete ID: ");
-            transaction = Convert.ToInt32(Console.ReadLine());
+            DesiredID = Convert.ToInt32(Console.ReadLine());
 
-            if (IncomingproductType == ProductsType.pants)
-            {
-                PantsProductDelete();
-            }
-            else if (IncomingproductType == ProductsType.tshirt)
-            {
-                TshirtProductDelete();
-            }
-            else if (IncomingproductType == ProductsType.dress)
-            {
-                DressProductDelete();
-            }
+            products.ProductDelete();
         }
 
-        void PantsProductDelete()
+        public void ViewYourProducts()
         {
-            pantsList.RemoveAt(transaction - 300);
-        }
-        void TshirtProductDelete()
-        {
-            tshirtsList.RemoveAt(transaction - 400);
-        }
-        void DressProductDelete()
-        {
-            dressList.RemoveAt(transaction - 500);
+            products.SellerProductsList();
         }
 
-        public static ProductsType productsTypeFinding()
+        public static String productsTypeFinding()
         {
-            int transaction = -1;
+            int transactions;
             while (true)
             {
                 Console.WriteLine("1- " + ProductsType.pants);
                 Console.WriteLine("2- " + ProductsType.tshirt);
                 Console.WriteLine("3- " + ProductsType.dress);
-                transaction = Convert.ToInt32(Console.ReadLine());
+                transactions = Convert.ToInt32(Console.ReadLine());
 
-                if (transaction == (int)ProductsType.pants)
-                {
-                    return ProductsType.pants;
-                }
-                else if (transaction == (int)ProductsType.tshirt)
-                {
-                    return ProductsType.tshirt;
-                }
-                else if (transaction == 3)
-                {
-                    return ProductsType.dress;
-                }
-                else
-                {
-                    Console.WriteLine("You made the wrong choice");  //Yanlış tercih yaptınız
-                }
+                return Products.ProductsTypelist[transactions];
             }
-        }
-
-        public void ViewYourProducts()
-        {
-            Products.SellerProductsList();
         }
     }
 }

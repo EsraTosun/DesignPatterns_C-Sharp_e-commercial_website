@@ -13,7 +13,7 @@ namespace ConsoleApp_e_commerce
 
         public static void SellerAccount()    //Satıcı Hesabı
         {
-            int transaction = -1;
+            int transaction;
             while (true)
             {
                 Console.WriteLine("1- Account information"); //Hesap bilgileri
@@ -23,32 +23,28 @@ namespace ConsoleApp_e_commerce
                 Console.WriteLine("5- Logout");  //Çıkış yap
                 transaction = Convert.ToInt32(Console.ReadLine());
 
-                if (transaction == (int)SellerAccountType.AccountInformation)
+                if(transaction == (int)SellerAccountType.AccountInformation)
                 {
-                    user.SellerUser();
+                    seller.AccountInformation();
                 }
-                else if (transaction == (int)SellerAccountType.ViewYourProducts)
-                {
-                    seller.ViewYourProducts();
-                }
-                else if (transaction == (int)SellerAccountType.AddProduct)
-                {
-                    seller.AddProduct(Seller.productsTypeFinding());
-                }
-                else if (transaction == (int)SellerAccountType.DeleteProduct)
+                else if(transaction == (int)SellerAccountType.ViewYourProducts)
                 {
                     seller.ViewYourProducts();
-                    seller.DeleteProduct(Seller.productsTypeFinding());
-                }
-                else if (transaction == (int)SellerAccountType.Logout)
+                }  
+                else if(transaction == (int)SellerAccountType.AddProduct)
                 {
-                    break;
+                    seller.AddProduct();
                 }
-            }
-            /*foreach (User sellerList in SellerList)
-            {
-                Console.WriteLine(sellerList.ToString());
-            }  */
+                else if(transaction == (int)SellerAccountType.DeleteProduct)
+                {
+                    seller.ViewYourProducts();
+                    seller.DeleteProduct();
+                }
+                else if(transaction == (int)SellerAccountType.Logout)
+                {
+                    return;
+                }
+            }          
         }
     }
 }
