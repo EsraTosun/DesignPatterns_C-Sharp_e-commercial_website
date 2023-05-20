@@ -52,12 +52,14 @@ namespace ConsoleApp_e_commerce
                     Console.WriteLine("Your cargo will be delivered to the " + CargoType.Yurtiçi + " cargo");
                     //Kargonuz Yurtiçi kargosuna verilecektir
                     Customer.myBasketList.Clear();
+                    totalamount = 0;
                 }
                 else if (index == (int)PaymentType.Cash)
                 {
                     OrderCreadted();
                     Console.WriteLine("Your cargo will be delivered to the " + CargoType.Yurtiçi + " cargo");
                     Customer.myBasketList.Clear();
+                    totalamount = 0;
                 }
                 else
                 {
