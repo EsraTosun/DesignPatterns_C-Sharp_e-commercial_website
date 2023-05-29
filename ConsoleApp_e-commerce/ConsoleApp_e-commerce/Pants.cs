@@ -8,56 +8,65 @@ namespace ConsoleApp_e_commerce
 {
     class Pants : Products   //Pantolon
     {
+        public PantTrotterPatterns pantTrotterPatterns;    //Pantolon paça kalıbı
+        public PantsAndDressBodys pantsAndDressBodys;      //Pantolon bedeni
+        public PantsFabricType pantsFabricType;            //Pantolon kumaşı
+
         public Pants()
             : base()
         {
 
         }
 
-        public Pants(int UserId, int ID, String brand, int amount, String color, String productsType,
-            String Patterns, String Bodys, String FabricType)
-            : base(UserId, ID, brand, amount, color, productsType, Patterns, Bodys, FabricType)
+        public Pants(int UserId, int ID, Brand brand, int amount, ColorType color, 
+            ProductsType productsType, PantTrotterPatterns pantTrotterPatterns,
+            PantsAndDressBodys pantsAndDressBodys, PantsFabricType pantsFabricType
+            )
+            : base(UserId, ID, brand, amount, color, productsType)
         {
 
-        }
+        }  
 
-        public override void SellerProductsList()  //Satıcı Ürünleri Listele
+        public static void SellerSortThePants()
         {
-            List<Products> result = Seller.productList.Where(x => x.UserID == User.USERID && 
-             x.productType.Equals(Enum.GetName(typeof(ProductsType), 1))).ToList();
-            for (int i = 0; i < result.Count; i++)
+            for (int i = 0; i < Seller.pantsList.Count; i++)
             {
-                Console.WriteLine(result[i]);
+                if (Seller.pantsList.ElementAt(i).UserID == User.USERID)
+                {
+                    Console.WriteLine(Seller.pantsList.ElementAt(i));
+                }
             }
         }
 
-        public override void ProductsList()  //Ürünleri Listele
+        public static void SortThePants()
         {
-            List<Products> result = Seller.productList.Where(
-                x =>x.productType.Equals(Enum.GetName(typeof(ProductsType), 1))).ToList();
-            for (int i = 0; i < result.Count; i++)
+            for(int i = 0;i < Seller.pantsList.Count;i++)
             {
-                Console.WriteLine(result[i]);
+                Console.WriteLine(Seller.pantsList[i].ToString());
             }
         }
 
-        public override void ProductDelete()
+        public static void FindingDesiredPants(int DesiredID)
         {
-            int index = Seller.productList.FindIndex(r => r.ID == Seller.DesiredID &&
-            r.productType.Equals(Enum.GetName(typeof(ProductsType), 1)));
-
-            if(index >= 0) 
-            Seller.productList.RemoveAt(index);
+            for (int i = 0; i < Seller.pantsList.Count; i++)
+            {
+                if (Seller.pantsList[i].ID == DesiredID)
+                {
+                    Console.WriteLine(Seller.pantsList.ElementAt(i).ToString());
+                }
+            }
         }
 
-        public override void FindingDesiredProduct()
+        public static int FindingPriceDesiredPants(int DesiredID)
         {
-            List<Products> result = Seller.productList.Where(x => x.ID == Customer.DesiredID &&
-             x.productType.Equals(Enum.GetName(typeof(ProductsType), 1))).ToList();
-            for (int i = 0; i < result.Count; i++)
+            for (int i = 0; i < Seller.pantsList.Count; i++)
             {
-                Console.WriteLine(result[i]);
+                if (Seller.pantsList[i].ID == DesiredID)
+                {
+                    return Seller.tshirtsList[i].amount;
+                }
             }
+            return 0;
         }
     }
 }

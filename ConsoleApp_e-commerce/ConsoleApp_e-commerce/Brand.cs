@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp_e_commerce
 {
-    public enum BrandType   //Marka
+    public enum Brand   //Marka
     {
         Lcwakiki,
         Defacto,
@@ -16,7 +16,7 @@ namespace ConsoleApp_e_commerce
 
     public class Brands
     {
-        public static List<String> brandList = Enum.GetNames(typeof(BrandType)).ToList();
+        public static List<String> brandList = Enum.GetNames(typeof(TshirtPatterns)).ToList();
 
         public static void BrandListWrite()
         {
@@ -25,14 +25,29 @@ namespace ConsoleApp_e_commerce
                 Console.WriteLine(i + "- " + brandList[i]);
             }
         }
-        public static String BrandListFinding()
+        public static Brand BrandListFinding()
         {
             int index;
             BrandListWrite();
             Console.WriteLine("Enter the Brand List Enter");
             index = Convert.ToInt32(Console.ReadLine());
 
-            return Enum.GetName(typeof(BrandType), index);
+            if (index == (int)Brand.Lcwakiki)
+            {
+                return Brand.Lcwakiki;
+            }
+            else if (index == (int)Brand.Defacto)
+            {
+                return Brand.Defacto;
+            }
+            else if(index == (int)Brand.Mavi)
+            {
+                return Brand.Mavi;
+            }
+            else
+            {
+                return Brand.Null;
+            }
         }
     }
     }

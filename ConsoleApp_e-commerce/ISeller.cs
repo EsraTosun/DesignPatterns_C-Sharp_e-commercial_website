@@ -8,8 +8,9 @@ namespace ConsoleApp_e_commerce
 {
     interface ISeller //Satıcı
     {
-        void AddProduct(ProductsType IncomingproductType);   //Ürün Ekle
-        void DeleteProduct(ProductsType IncomingproductType);  //Ürün Sil
+        void AccountInformation();  //Hesap Bilgileri
+        void AddProduct();   //Ürün Ekle
+        void DeleteProduct();  //Ürün Sil
         void ViewYourProducts();   //Ürünlerini görüntüle
     }
 }

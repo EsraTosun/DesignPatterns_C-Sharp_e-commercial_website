@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
@@ -20,28 +19,20 @@ namespace ConsoleApp_e_commerce
 
     class Products  //Ürünler
     {
-        public static List<String> ProductsTypelist = Enum.GetNames(typeof(ProductsType)).ToList();
         public int UserID;
         public int ID;
-        public String brand;   //marka
+        public Brand brand;   //marka
         public int amount;   //tutar
-        public String color;
-        public String productType;
+        public ColorType color;
+        public ProductsType productType;
 
-        public String Patterns;   // boyu
-        public String Bodys;      // bedeni
-        public String FabricType;          // kumaşı
+        int transaction = -1;
 
-        int transaction;
-
- 
         public Products()
         {
 
         }
-
-        public Products(int UserId,int ID,String brand,int amount, String color,String productsType,
-            String Patterns, String Bodys,String FabricType)
+        public Products(int UserId,int ID,Brand brand,int amount,ColorType color,ProductsType productsType)
         {
             this.UserID = UserId;
             this.ID = ID;
@@ -49,41 +40,27 @@ namespace ConsoleApp_e_commerce
             this.amount = amount;
             this.color = color;
             this.productType = productsType;
-            this.Patterns = Patterns;
-            this.Bodys = Bodys;
-            this.FabricType = FabricType;
         }
 
-        public virtual void SellerProductsList()  //Satıcı Ürünleri Listele
+        public static void SellerProductsList()  //Ürünleri Listele
         {
-            List<Products> result = Seller.productList.Where(x => x.UserID == User.USERID).ToList();
-            for (int i = 0; i < result.Count; i++)
-            {
-                Console.WriteLine(result[i]);
-            }
+            Tshirt.SellerSortTheTshirt();
+            Dress.SellerSortTheDress();
+            Pants.SellerSortThePants();
         }
 
-        public virtual void ProductsList()  //Ürünleri Listele
+        public void ProductsList()  //Ürünleri Listele
         {
-            for (int i = 0; i < Seller.productList.Count; i++)
-            {
-                Console.WriteLine(Seller.productList[i]);
-            }
+            Tshirt.SortTheTshirt();
+            Dress.SortTheDress();
+            Pants.SortThePants();
         }
 
-        public virtual void FindingDesiredProduct()
+        public static void FindingDesiredProduct(int DesiredID)
         {
-            List<Products> result = Seller.productList.Where(x => x.ID == Customer.DesiredID).ToList();
-            for (int i = 0; i < result.Count; i++)
-            {
-                Console.WriteLine(result[i]);
-            }
-        }
-
-        public virtual void ProductDelete()
-        {
-            int index = Seller.productList.FindIndex(r => r.ID == Seller.DesiredID);
-            Seller.productList.RemoveAt(index);
+            Pants.FindingDesiredPants(DesiredID);
+            Dress.FindingDesiredDress(DesiredID);
+            Tshirt.FindingDesiredTshirt(DesiredID);
         }
 
         public override string ToString()

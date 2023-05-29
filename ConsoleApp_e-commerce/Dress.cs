@@ -7,66 +7,57 @@ using System.Threading.Tasks;
 namespace ConsoleApp_e_commerce
 {
     class Dress : Products //Elbise
-    {
-        public DressLengthPatterns dressLengthPatterns;   //Elbise boyu
-        public PantsAndDressBodys pantsAndDressBodys;      //Elbise bedeni
-        public DressFabricType dressFabricType;          //Elbise kumaşı
-        
+    {     
         public Dress()
             : base()
         {
 
         }
 
-        public Dress(int UserId, int ID, Brand brand, int amount, ColorType color, 
-            ProductsType productsType, DressLengthPatterns dressLengthPatterns,
-            PantsAndDressBodys pantsAndDressBodys, DressFabricType dressFabricType
-            )
-            : base(UserId, ID, brand, amount, color, productsType)
+        public Dress(int UserId, int ID, String brand, int amount, String color, String productsType,
+            String Patterns, String Bodys, String FabricType)
+            : base(UserId, ID, brand, amount, color, productsType,Patterns,Bodys,FabricType)
         {
 
-        }  
+        }
 
-        public static void SortTheDress()
+        public override void SellerProductsList()  //Satıcı Ürünleri Listele
         {
-            for (int i = 0; i < Seller.dressList.Count; i++)
+            List<Products> result = productList.Where(x => x.UserID == User.USERID &&
+             x.productType.Equals(Enum.GetName(typeof(ProductsType), 3))).ToList();
+            for (int i = 0; i < result.Count; i++)
             {
-                Console.WriteLine(Seller.dressList[i].ToString());
+                Console.WriteLine(result[i]);
             }
         }
 
-        public static void SellerSortTheDress()
+        public override void ProductsList()  //Ürünleri Listele
         {
-            for (int i = 0; i < Seller.dressList.Count; i++)
+            List<Products> result = productList.Where(
+             x => x.productType.Equals(Enum.GetName(typeof(ProductsType), 3))).ToList();
+            for (int i = 0; i < result.Count; i++)
             {
-                if (Seller.dressList.ElementAt(i).UserID == User.USERID)
-                {
-                    Console.WriteLine(Seller.dressList.ElementAt(i));
-                }
+                Console.WriteLine(result[i]);
             }
         }
 
-        public static void FindingDesiredDress(int DesiredID)
+        public override void ProductDelete()
         {
-            for (int i = 0; i < Seller.dressList.Count; i++)
-            {
-                if (Seller.dressList[i].ID == DesiredID)
-                {
-                    Console.WriteLine(Seller.dressList.ElementAt(i));
-                }
-            }
+            int index = productList.FindIndex(r => r.ID == Seller.DesiredID &&
+             r.productType.Equals(Enum.GetName(typeof(ProductsType), 3)));
+
+            if (index >= 0)
+                productList.RemoveAt(index);
         }
 
-        public static int FindingPriceDesiredDress(int DesiredID)
+        public override void FindingDesiredProduct()
         {
-            for (int i = 0; i < Seller.dressList.Count; i++)
+            List<Products> result = productList.Where(x => x.ID == Customer.DesiredID &&
+             x.productType.Equals(Enum.GetName(typeof(ProductsType), 3))).ToList();
+            for (int i = 0; i < result.Count; i++)
             {
-                if (Seller.dressList[i].ID == DesiredID)
-                {
-                    return Seller.tshirtsList[i].amount;
-                }
+                Console.WriteLine(result[i]);
             }
-            return 0;
         }
     }
 }

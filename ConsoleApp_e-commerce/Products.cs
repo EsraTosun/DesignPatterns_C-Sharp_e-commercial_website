@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
@@ -19,20 +20,30 @@ namespace ConsoleApp_e_commerce
 
     class Products  //Ürünler
     {
+        public static List<Products> productList = new List<Products>();
+
+        public static List<String> ProductsTypelist = Enum.GetNames(typeof(ProductsType)).ToList();
         public int UserID;
         public int ID;
-        public Brand brand;   //marka
+        public String brand;   //marka
         public int amount;   //tutar
-        public ColorType color;
-        public ProductsType productType;
+        public String color;
+        public String productType;
 
-        int transaction = -1;
+        public String patterns;   // boyu
+        public String Bodys;      // bedeni
+        public String FabricType;          // kumaşı
 
+        int transaction;
+
+ 
         public Products()
         {
 
         }
-        public Products(int UserId,int ID,Brand brand,int amount,ColorType color,ProductsType productsType)
+
+        public Products(int UserId,int ID,String brand,int amount, String color,String productsType,
+            String Patterns, String Bodys,String FabricType)
         {
             this.UserID = UserId;
             this.ID = ID;
@@ -40,27 +51,58 @@ namespace ConsoleApp_e_commerce
             this.amount = amount;
             this.color = color;
             this.productType = productsType;
+            this.patterns = Patterns;
+            this.Bodys = Bodys;
+            this.FabricType = FabricType;
         }
 
-        public static void SellerProductsList()  //Ürünleri Listele
+        public virtual void SellerProductsList()  //Satıcı Ürünleri Listele
         {
-            Tshirt.SellerSortTheTshirt();
-            Dress.SellerSortTheDress();
-            Pants.SellerSortThePants();
+            List<Products> result = productList.Where(x => x.UserID == User.USERID).ToList();
+            for (int i = 0; i < result.Count; i++)
+            {
+                Console.WriteLine(result[i]);
+            }
         }
 
-        public void ProductsList()  //Ürünleri Listele
+        public virtual void ProductsList()  //Ürünleri Listele
         {
-            Tshirt.SortTheTshirt();
-            Dress.SortTheDress();
-            Pants.SortThePants();
+            for (int i = 0; i < productList.Count; i++)
+            {
+                Console.WriteLine(productList[i]);
+            }
         }
 
-        public static void FindingDesiredProduct(int DesiredID)
+        public virtual void FindingDesiredProduct()
         {
-            Pants.FindingDesiredPants(DesiredID);
-            Dress.FindingDesiredDress(DesiredID);
-            Tshirt.FindingDesiredTshirt(DesiredID);
+            List<Products> result = productList.Where(x => x.ID == Customer.DesiredID).ToList();
+            for (int i = 0; i < result.Count; i++)
+            {
+                Console.WriteLine(result[i]);
+            }
+        }
+
+        public virtual void ProductDelete()
+        {
+            int index = productList.FindIndex(r => r.ID == Seller.DesiredID);
+            productList.RemoveAt(index);
+        }
+
+        public virtual void ProductAdd()
+        {
+            Products product = new Products();
+
+            product.productType = Seller.productsTypeFinding();
+            product.ID = productList.Count + 1000;
+            Console.WriteLine("Enter the price");  //Fiyatını giriniz
+            product.amount = Convert.ToInt32(Console.ReadLine());
+            product.color = Color.ColorFinfing();
+            product.brand = Brands.BrandListFinding();
+            product.Bodys = BodyChart.BodysFinding();
+            product.patterns = Patterns.PatternsFinding();
+            product.FabricType = Fabrics.PantsFabricTypeFinding();
+            product.UserID = Seller.USERID;
+            productList.Add(product);
         }
 
         public override string ToString()

@@ -25,7 +25,11 @@ namespace ConsoleApp_e_commerce
 
 				if (transaction == (int)CustomerAccountType.AccountInformation)
 				{
-					customer.AccountInformation();
+					if (User.login)
+						user.CustomerUser();
+
+					else
+						user.UserTransactions();
 				}
 				else if (transaction == (int)CustomerAccountType.Products)
 				{
@@ -49,7 +53,7 @@ namespace ConsoleApp_e_commerce
                 }
                 else if (transaction == (int)CustomerAccountType.Logout)
 				{
-					return;
+					break;
 				}
 			}
 		}

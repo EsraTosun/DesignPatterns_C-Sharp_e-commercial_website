@@ -29,14 +29,15 @@ namespace ConsoleApp_e_commerce
         public static UserType userType;
         UserTransactionsType userTransactionsType;
 
+
         public static int USERID;
-        int ID;
-        string Name;
-        string Surname;
-        string PhoneNumber;
-        string EmailAddress;
-        string Password;
-        string Adress;
+        public int ID;
+        public string Name;
+        public string Surname;
+        public string PhoneNumber;
+        public string EmailAddress;
+        public string Password;
+        public string Adress;
         public static bool login = false;
 
         public User()    //Önceden kayıtlı müşteri ve satıcıları burada ekle
@@ -55,54 +56,6 @@ namespace ConsoleApp_e_commerce
             Adress = adress;
         }
 
-        public void UserTypeLeading()    //Kullanıcı tipi öğrenme 
-        {
-            if (userType.Equals(UserType.Customer))
-            {
-                CustomerProductsTransacitons.CustomerAccount();
-            }
-            else
-            {
-                SellerProductsTransactions.SellerAccount();
-            }
-        }
-
-        public void UserTransactions()
-        {
-            int transaction = -1;
-
-            while (transaction !=3 && login == false)
-            {
-                Console.WriteLine("1-Login");   //Girş yap
-                Console.WriteLine("2-New Creating an Account");   //Hesap oluştur
-                Console.WriteLine("3-Continue without logging in");  //Giriş yapmadan devam et
-                Console.WriteLine("4-Logout");
-                transaction = Convert.ToInt32(Console.ReadLine()); 
-
-                if (transaction == 1)
-                {
-                    LogIn();
-                }
-                else if (transaction == 2)
-                {
-                    NewCreatingAnAccount();
-                }
-                else if (transaction == 3)
-                {
-                    UserTypeLeading();
-                }
-                else if(transaction == 4)
-                {
-                    LogOut();
-                    return;
-                }
-                else
-                {
-                    Console.WriteLine("You made the wrong choice");  //Yanlış tercih yaptınız
-                }
-            }
-        }
-
         public void LogIn()
         {
             Console.WriteLine("Email address your enter"); //E mail adresini giriniz.
@@ -110,49 +63,14 @@ namespace ConsoleApp_e_commerce
             Console.WriteLine("Password your enter");   //şifrenizi giriniz
             Password = Console.ReadLine();
 
-            if (userType.Equals(UserType.Customer))
-            {
-                CustomerAccounutControl();
-            }
-            else
-            {
-                SellerAccounutControl();
-            }
+            AccounutControl();
         }
 
-        void CustomerAccounutControl()
-        {
-            for(int i= 0; i < CustomerList.Count; i++)
-            {
-                if (CustomerList[i].EmailAddress.Equals(EmailAddress) 
-                    && CustomerList[i].Password.Equals(Password))
-                {
-                    USERID = CustomerList[i].ID;
-                    login = true;
-                    CustomerAccountGo();
-                    break;
-                }
-            }
-        }
-
-        void SellerAccounutControl()
-        {
-            for (int i = 0; i < SellerList.Count; i++)
-            {
-                if (SellerList[i].EmailAddress.Equals(EmailAddress)
-                    && SellerList[i].Password.Equals(Password))
-                {
-                    USERID = SellerList[i].ID;
-                    login = true;
-                    SellerAccountGo();
-                    break;
-                }
-            }
-        }
+        
 
         public void LogOut()  //Kullancıya ait tüm verileri nullarız Çünkü oturum kapattıktan sonra 
-        {                     //ulaşmasını engellemek içim.
-           return;
+        {                     //ulaşmasını engellemek için.
+            return;
         }
 
         public void NewCreatingAnAccount()
@@ -187,17 +105,55 @@ namespace ConsoleApp_e_commerce
             }
 
             
-            UserTypeLeading();
+            LogoutContiune();
         }
 
-        void CustomerAccountGo()          //Müşteri hesabına git
+        public void LogoutContiune()
         {
-            CustomerProductsTransacitons.CustomerAccount();
+            if (User.userType.Equals(UserType.Customer))
+            {
+                CustomerProductsTransacitons.CustomerAccount();
+            }
+            else
+            {
+                SellerProductsTransactions.SellerAccount();
+            }
         }
 
-        void SellerAccountGo()          //Satıcı hesabına git
+        public void AccounutControl()
         {
-            SellerProductsTransactions.SellerAccount(); 
+            for (int i = 0; i < User.CustomerList.Count; i++)
+            {
+                if (User.CustomerList[i].EmailAddress.Equals(EmailAddress)
+                    && User.CustomerList[i].Password.Equals(Password))
+                {
+                    USERID = User.CustomerList[i].ID;
+                    login = true;
+                    AccountGo();
+                    break;
+                }
+            }
+
+            for (int i = 0; i < User.SellerList.Count; i++)
+            {
+                if (User.SellerList[i].EmailAddress.Equals(EmailAddress)
+                    && User.SellerList[i].Password.Equals(Password))
+                {
+                    User.USERID = SellerList[i].ID;
+                    User.login = true;
+                    AccountGo();
+                    break;
+                }
+            }
+        }
+
+        public void AccountGo()          //Müşteri hesabına git
+        {
+            if(userType.Equals(UserType.Customer))
+                CustomerProductsTransacitons.CustomerAccount();
+
+            else
+                SellerProductsTransactions.SellerAccount();
         }
 
         public override string ToString()
@@ -210,36 +166,6 @@ namespace ConsoleApp_e_commerce
             builder.Append(" Phone Number: " + PhoneNumber);
             builder.Append(" Adress: " + Adress);
             return builder.ToString();
-        }
-
-        public void SellerUser()
-        {
-            for(int i=0;  i<SellerList.Count; i++) 
-            {
-                if (SellerList[i].ID == USERID)
-                {
-                    Console.WriteLine(SellerList[i].ToString());
-                    break;
-                }
-            }
-        }
-
-        public void CustomerUser()
-        {
-            for (int i = 0; i < CustomerList.Count; i++)
-            {
-                if (CustomerList[i].ID == USERID) 
-                {
-                    Console.WriteLine(CustomerList[i].ToString());
-                    break;
-                }
-            }
-        }
-
-        public void AccountInformation()
-        {
-            SellerUser();
-            CustomerUser();
         }
     }  
 }

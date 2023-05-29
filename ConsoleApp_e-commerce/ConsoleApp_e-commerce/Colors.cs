@@ -27,14 +27,29 @@ namespace ConsoleApp_e_commerce
             }
         }
 
-        public static String ColorFinfing()   //renk bulma
+        public static ColorType ColorFinfing()   //renk bulma
         {
             int index;
             ColorWrite();
             Console.WriteLine("Enter the Color");
             index = Convert.ToInt32(Console.ReadLine());
 
-            return Enum.GetName(typeof(ColorType), index);
+            if (index == (int)ColorType.Red)
+            {
+                return ColorType.Red;
+            }
+            else if (index == (int)ColorType.Green)
+            {
+                return ColorType.Green;
+            }
+            else if (index == (int)ColorType.Blue)
+            {
+                return ColorType.Blue;
+            }
+            else
+            {
+                return ColorType.Black;
+            }
         }
     }
 }

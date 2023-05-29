@@ -13,7 +13,7 @@ namespace ConsoleApp_e_commerce
 
         public static void SellerAccount()    //Satıcı Hesabı
         {
-            int transaction;
+            int transaction = -1;
             while (true)
             {
                 Console.WriteLine("1- Account information"); //Hesap bilgileri
@@ -25,7 +25,7 @@ namespace ConsoleApp_e_commerce
 
                 if(transaction == (int)SellerAccountType.AccountInformation)
                 {
-                    seller.AccountInformation();
+                    user.SellerUser();
                 }
                 else if(transaction == (int)SellerAccountType.ViewYourProducts)
                 {
@@ -33,18 +33,21 @@ namespace ConsoleApp_e_commerce
                 }  
                 else if(transaction == (int)SellerAccountType.AddProduct)
                 {
-                    seller.AddProduct();
+                    seller.AddProduct(Seller.productsTypeFinding());
                 }
                 else if(transaction == (int)SellerAccountType.DeleteProduct)
                 {
-                    seller.ViewYourProducts();
-                    seller.DeleteProduct();
+                    seller.AddProduct(Seller.productsTypeFinding());
                 }
                 else if(transaction == (int)SellerAccountType.Logout)
                 {
-                    return;
+                    break;
                 }
-            }          
+            }
+            /*foreach (User sellerList in SellerList)
+            {
+                Console.WriteLine(sellerList.ToString());
+            }  */           
         }
     }
 }

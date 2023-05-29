@@ -47,7 +47,6 @@
     <Compile Include="Brand.cs" />
     <Compile Include="Colors.cs" />
     <Compile Include="Customer.cs" />
-    <Compile Include="CustomerListTransactions.cs" />
     <Compile Include="Dress.cs" />
     <Compile Include="FabricType.cs" />
     <Compile Include="ICustomer.cs" />
@@ -63,7 +62,6 @@
     <Compile Include="Tshirt.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Seller.cs" />
-    <Compile Include="UserTransacions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

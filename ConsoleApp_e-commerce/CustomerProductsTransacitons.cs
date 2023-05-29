@@ -25,11 +25,7 @@ namespace ConsoleApp_e_commerce
 
 				if (transaction == (int)CustomerAccountType.AccountInformation)
 				{
-					if (User.login)
-						user.CustomerUser();
-
-					else
-						user.UserTransactions();
+					customer.AccountInformation();
 				}
 				else if (transaction == (int)CustomerAccountType.Products)
 				{
@@ -43,15 +39,15 @@ namespace ConsoleApp_e_commerce
 				{
 					customer.Favorites();
 				}
-				else if (transaction == (int)CustomerAccountType.Payment)
-				{
+                else if (transaction == (int)CustomerAccountType.Payment)
+                {
 					if(User.login)
 						customer.PaymentTransaction();
 
 					else
 						Console.WriteLine("Log in");  // Oturum aç
-				}
-				else if (transaction == (int)CustomerAccountType.Logout)
+                }
+                else if (transaction == (int)CustomerAccountType.Logout)
 				{
 					return;
 				}
