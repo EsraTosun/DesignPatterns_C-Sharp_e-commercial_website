@@ -33,11 +33,11 @@ namespace ConsoleApp_e_commerce
 				}
 				else if (transaction == (int)CustomerAccountType.MyBasket)
 				{
-					customer.MyBasket();
+					customer.MyBaskets();
 				}
 				else if (transaction == (int)CustomerAccountType.Favorites)
 				{
-					customer.Favorites();
+					customer.Favoritess();
 				}
                 else if (transaction == (int)CustomerAccountType.Payment)
                 {

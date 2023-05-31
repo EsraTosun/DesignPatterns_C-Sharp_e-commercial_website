@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Favorites.cs" />
+    <Compile Include="MyBasket.cs" />
     <Compile Include="BodyChart.cs" />
     <Compile Include="Brand.cs" />
     <Compile Include="Colors.cs" />

@@ -51,14 +51,14 @@ namespace ConsoleApp_e_commerce
                     CardInformation();
                     Console.WriteLine("Your cargo will be delivered to the " + CargoType.Yurtiçi + " cargo");
                     //Kargonuz Yurtiçi kargosuna verilecektir
-                    Customer.myBasketList.Clear();
+                    MyBasket.myBasketList.Clear();
                     totalamount = 0;
                 }
                 else if (index == (int)PaymentType.Cash)
                 {
                     OrderCreadted();
                     Console.WriteLine("Your cargo will be delivered to the " + CargoType.Yurtiçi + " cargo");
-                    Customer.myBasketList.Clear();
+                    MyBasket.myBasketList.Clear();
                     totalamount = 0;
                 }
                 else
@@ -95,9 +95,9 @@ namespace ConsoleApp_e_commerce
 
         public static void TotalAmountCalculate()  //Toplam Tutar Hesapla
         {
-            for(int i= 0; i < Customer.myBasketList.Count; i++) 
+            for(int i= 0; i < MyBasket.myBasketList.Count; i++) 
             {
-                totalamount += Customer.myBasketList[i].amount;
+                totalamount += MyBasket.myBasketList[i].amount;
             }
         }
 

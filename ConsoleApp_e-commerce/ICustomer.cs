@@ -9,8 +9,8 @@ namespace ConsoleApp_e_commerce
     interface ICustomer  //Müşteri
     {
         void AccountInformation();  //Hesap Bilgileri
-        void MyBasket();  //Sepetim
-        void Favorites();  //Favoriler
+        void MyBaskets();  //Sepetim
+        void Favoritess();  //Favoriler
         void ProductsList();  //Ürünler
         void PaymentTransaction();
     }

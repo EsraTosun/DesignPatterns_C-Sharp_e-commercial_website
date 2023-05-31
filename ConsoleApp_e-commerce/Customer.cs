@@ -24,8 +24,6 @@ namespace ConsoleApp_e_commerce
         public static int DesiredID;
 
         public static List<String> CustomerAccountTypelist = Enum.GetNames(typeof(CustomerAccountType)).ToList();
-        public static List<Products> favoritesList = new List<Products>();
-        public static List<Products> myBasketList = new List<Products>();  
 
         public static int transactionID = -1;
         static int transaction = -1;
@@ -45,26 +43,15 @@ namespace ConsoleApp_e_commerce
             CustomerListTransactions.MyBasketORFavoritesAdd();
         }
 
-        public void MyBasket()
+        public void MyBaskets()
         {
 
-            for (int i=0; i<myBasketList.Count;  i++)
-            {
-                DesiredID = myBasketList[i].ID;
-                products.FindingDesiredProduct();
-            }
-            
-            CustomerListTransactions.MyBasketDelete();
+            MyBasket.MyBasketList();
         }
 
-        public void Favorites()
+        public void Favoritess()
         {
-            for (int i = 0; i < favoritesList.Count; i++)
-            {
-                DesiredID = favoritesList[i].ID;
-                products.FindingDesiredProduct();
-            }
-             CustomerListTransactions.FavoritesDelete();
+            Favorites.FavoritesList();
         }
 
         public void PaymentTransaction()
