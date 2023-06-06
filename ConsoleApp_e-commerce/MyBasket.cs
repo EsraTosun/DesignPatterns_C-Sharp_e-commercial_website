@@ -11,7 +11,6 @@ namespace ConsoleApp_e_commerce
         public static List<Products> myBasketList = new List<Products>();
         public static Products products = new Products();
 
-
         public static void MyBasketAdd()
         {
             Products products = new Products();
